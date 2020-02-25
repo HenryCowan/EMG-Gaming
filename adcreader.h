@@ -31,7 +31,7 @@
  * Callback for new samples which needs to be implemented by the main program.
  * The function hasSample needs to be overloaded in the main program.
  **/
-class AD7705callback {
+class ADS131callback {
 public:
 	/**
 	 * Called after a sample has arrived.
@@ -44,19 +44,19 @@ public:
  * This class reads data from the AD7705 in the background (separate
  * thread) and calls a callback function whenever data is available.
  **/
-class AD7705Comm {
+class ADS131Comm {
 
 public:
 	/**
 	 * Constructor with the spiDevice. The default device
 	 * is /dev/spidev0.0.
 	 **/
-	AD7705Comm(const char* spiDevice = "/dev/spidev0.0");
+	ADS131Comm(const char* spiDevice = "/dev/spidev0.0");
 
 	/**
 	 * Sets the callback which is called whenever there is a sample
 	 **/
-	void setCallback(AD7705callback* cb);
+	void setCallback(ADS131callback* cb);
 
 	/**
 	 * Starts the data acquisition in the background and the
@@ -88,14 +88,14 @@ private:
 	int sysfs_fd = 0;
 	std::thread* daqThread = NULL;
 	int running = 0;
-	AD7705callback* ad7705callback = NULL;
+	ADS131callback* ads131callback = NULL;
 
 	int spi_transfer(int fd, uint8_t* tx, uint8_t* rx, int n);
 	void writeReset(int fd);
 	void writeReg(int fd, uint8_t v);
 	uint8_t readReg(int fd);
 	int readData(int fd);
-	static void run(AD7705Comm* ad7705comm);
+	static void run(ADS131Comm* ADS131comm);
 
 };
 
