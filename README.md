@@ -23,3 +23,16 @@ The primary use of this system is to increase the submersion effect of the playe
 The system also has uses in the field of rehabilitation, and could be used to encourage otherwise unpleasent rehabilitation programs.
 
 This system could be used in combination with FES stimulation to assist those with muscular or neuronal pathologies.
+
+
+
+
+
+
+**Progress** 
+
+We've achieved a working AD7705 pcb to read in a stream of data to start plotting whilst the EMG pcb is being fabricated and tested.
+
+A realtime Qt plot has been acheived, the basis of the plot is presented with window.cpp. 
+
+The EMG adc has been selected as is getting implemented onto a custom pcb for 4 channel EMG recording.
