@@ -88,4 +88,4 @@ void Window::setGain(double gain)
 {
 	// for example purposes just change the amplitude of the generated input
 	this->gain = gain;
-}
+ }
