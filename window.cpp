@@ -1,80 +1,61 @@
+
 #include "window.h"
-// #include "adcreader.h"
+#include "adcreader.h"
 
 #include <cmath>  // for sine stuff
+#include <unistd.h> // usleep
 
 
 
-// standard I/O stuff
-#include <stdio.h>
-#include <assert.h>
+Window::Window() : qgain(5), count(0)
+{
+	knob = new QwtKnob;
+	// set up the gain knob
+	knob->setValue(qgain);
 
-// includes the 2nd order IIR filter
+	// use the Qt signals/slots framework to update the gain -
+	// every time the knob is moved, the setGain function will be called
+	connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
 
-#include <iostream>
-// Simulates a realtime system by sending a 12 bit integer ECG
-// through a 50Hz fixed point IIR bandstop
-
-// standard I/O stuff
-#include <stdio.h>
-#include <assert.h>
-
+	// set up the thermometer
+	thermo = new QwtThermo; 
+	thermo->setFillBrush( QBrush(Qt::red) );
+	//thermo->setRange(0, 20);
+	thermo->show();
 
 
 	// set up the initial plot data
 	for( int index=0; index<plotDataSize; ++index )
 	{
 		xData[index] = index;
-		yData[index] =  sin( M_PI * index/50 );
+		yData[index] = qgain * sin( M_PI * index/50 );
 	}
 
-    curve1 = new QwtPlotCurve;
-    curve2 = new QwtPlotCurve;
-    curve3 = new QwtPlotCurve;
-    curve4 = new QwtPlotCurve;
-    
-    plot1 = new QwtPlot;
-    plot2 = new QwtPlot;
-    plot3 = new QwtPlot;
-    plot4 = new QwtPlot;
+	curve = new QwtPlotCurve;
+	plot = new QwtPlot;
 	// make a plot curve from the data and attach it to the plot
-    
+	curve->setSamples(xData, yData, plotDataSize);
+	curve->attach(plot);
 
-    curve1->setSamples(xData, yData, plotDataSize);
-    curve1->attach(plot1);
-    curve2->setSamples(xData, yData, plotDataSize);
-    curve2->attach(plot2);
-    curve3->setSamples(xData, yData, plotDataSize);
-    curve3->attach(plot3);
-    curve4->setSamples(xData, yData, plotDataSize);
-    curve4->attach(plot4);
-
-    plot1->replot();
-    plot1->show();
-    plot2->replot();
-    plot2->show();
-    plot3->replot();
-    plot3->show();
-    plot4->replot();
-    plot4->show();
+	plot->replot();
+	plot->show();
 
 
-    vLayout1 = new QVBoxLayout;
-    vLayout1->addLayout(vLayout1);
+	// set up the layout - knob above thermometer
+	vLayout = new QVBoxLayout;
+	vLayout->addWidget(knob);
+	vLayout->addWidget(thermo);
 
-    vLayout1->addWidget(plot1);
-    vLayout1->addWidget(plot2);
-    vLayout1->addWidget(plot3);
-    vLayout1->addWidget(plot4);
+	// plot to the left of knob and thermometer
+	hLayout = new QHBoxLayout;
+	hLayout->addLayout(vLayout);
+	hLayout->addWidget(plot);
 
-	setLayout(vLayout1);
-	// This is a demo for a thread which can be
-	// used to read from the ADC asynchronously.
-	// At the moment it doesn't do anything else than
-	// running in an endless loop and which prints out "tick"
-	// every second.
-//	adcreader = new ADCreader();
-//	adcreader->start();
+	setLayout(hLayout);
+
+
+    ads.setGain(adsGain_t::GAIN_EIGHT);
+    ads.begin();
 }
 
 Window::~Window() {
@@ -87,27 +68,32 @@ Window::~Window() {
 
 void Window::timerEvent( QTimerEvent * )
 {
-	int inVal = yData;
+
+    
+    adc0 = ads.readADC_SingleEnded(0);
+    //printBits(sizeof(adc0), &adc0);
+    usleep(1);
+    
+    	double inVal = adc0;
 	++count;
 
 	// add the new input to the plot
 	memmove( yData, yData+1, (plotDataSize-1) * sizeof(double) );
 	yData[plotDataSize-1] = inVal;
+	curve->setSamples(xData, yData, plotDataSize);
+	plot->replot();
 
-    curve1->setSamples(xData, yData, plotDataSize);
-    curve2->setSamples(xData, yData, plotDataSize);
-    curve3->setSamples(xData, yData, plotDataSize);
-    curve4->setSamples(xData, yData, plotDataSize);
-
-    plot1->replot();
-    plot2->replot();
-    plot3->replot();
-    plot4->replot();
-
-
-
+	// set the thermometer value
+	thermo->setValue( inVal + 10 );
 
 }
 
+
+// this function can be used to change the gain of the A/D internal amplifier
+void Window::setGain(double qgain)
+{
+	// for example purposes just change the amplitude of the generated input
+	this->qgain = qgain;
+}
 
 
