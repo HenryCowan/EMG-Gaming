@@ -2,6 +2,10 @@
 **Potential ADC's**
 
 
+The chosen one!
+
+http://www.ti.com/lit/ds/symlink/ads1115.pdf
+
 
 Preferred option
 
