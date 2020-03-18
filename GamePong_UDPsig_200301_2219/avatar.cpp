@@ -8,4 +8,5 @@ Avatar::Avatar(QColor color, const QRectF & rect, QGraphicsItem * parent) :
 {
     QBrush b(color);
     setBrush(b);
+    
 }
