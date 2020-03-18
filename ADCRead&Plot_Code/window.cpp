@@ -17,11 +17,6 @@ Window::Window() : qgain(5), count(0)
 	// every time the knob is moved, the setGain function will be called
 	connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
 
-	// set up the thermometer
-	thermo = new QwtThermo; 
-	thermo->setFillBrush( QBrush(Qt::red) );
-	//thermo->setRange(0, 20);
-	thermo->show();
 
 
 	// set up the initial plot data
@@ -44,7 +39,7 @@ Window::Window() : qgain(5), count(0)
 	// set up the layout - knob above thermometer
 	vLayout = new QVBoxLayout;
 	vLayout->addWidget(knob);
-	vLayout->addWidget(thermo);
+
 
 	// plot to the left of knob and thermometer
 	hLayout = new QHBoxLayout;
@@ -83,8 +78,6 @@ void Window::timerEvent( QTimerEvent * )
 	curve->setSamples(xData, yData, plotDataSize);
 	plot->replot();
 
-	// set the thermometer value
-	thermo->setValue( inVal + 10 );
 
 }
 
