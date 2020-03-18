@@ -1,0 +1,32 @@
+\hypertarget{classADCreader}{}\section{A\+D\+Creader Class Reference}
+\label{classADCreader}\index{A\+D\+Creader@{A\+D\+Creader}}
+
+
+Inheritance diagram for A\+D\+Creader\+:
+% FIG 0
+
+
+Collaboration diagram for A\+D\+Creader\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classADCreader_a1656971d2d88d4dde973dcd0872949cc}\label{classADCreader_a1656971d2d88d4dde973dcd0872949cc}} 
+void {\bfseries quit} ()
+\item 
+\mbox{\Hypertarget{classADCreader_ae3530fd3834b04b98314ad12956be138}\label{classADCreader_ae3530fd3834b04b98314ad12956be138}} 
+void {\bfseries run} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 6 of file adcreader.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+adcreader.\+h\item 
+adcreader.\+cpp\end{DoxyCompactItemize}

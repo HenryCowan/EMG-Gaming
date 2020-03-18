@@ -1,0 +1,42 @@
+A simple example program using Qt/\+Qwt widgets to be used as a base for students doing Raspberry Pi data acquisition. It also creates a Thread which could be used to acquire A\+DC data with the help of poll/select and storing it in a ringbuffer.
+
+
+
+\subsection*{Making it work}
+
+Install the Q\+T5 and Qwt development packages\+:
+
+
+\begin{DoxyCode}
+apt-get install qtdeclarative5-dev-tools
+apt-get install libqwt-qt5-dev
+\end{DoxyCode}
+
+
+To clone this git repository.
+
+To build\+:
+
+
+\begin{DoxyCode}
+cd qwt-example
+qmake
+make
+\end{DoxyCode}
+
+
+To run (assuming you are logged into the R\+Pi over ssh and no X-\/server is running)\+:
+
+
+\begin{DoxyCode}
+startx ./QwtExample
+\end{DoxyCode}
+
+
+or with X running
+
+
+\begin{DoxyCode}
+./QwtExample
+\end{DoxyCode}
+ 
