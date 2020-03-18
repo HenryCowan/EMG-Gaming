@@ -36,3 +36,14 @@ We've achieved a working AD7705 pcb to read in a stream of data to start plottin
 A realtime Qt plot has been acheived, the basis of the plot is presented with window.cpp. 
 
 The EMG adc has been selected as is getting implemented onto a custom pcb for 4 channel EMG recording.
+
+
+=======================================================================================
+
+We've swapped ADC's to the ads1115 and are reading in rt data from all channels using i2c.
+
+The game is now fully functional and displays on android devices via UDP data transfer.
+
+The game responds to changes in signal from the ADC.
+
+Only thing left to do is get some muscle signals!
