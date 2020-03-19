@@ -1,4 +1,5 @@
 High speed continous driver of ads1115
+
 To control the ads1115 to read at >400hz, the ads driver should control ads1115 in continous mode
 However, there is no existed ads1115 continous lib in C++ found so I write this QT/C++ one 
 no need to write config every time before every reading, thus time interval can go beneath 2ms 
