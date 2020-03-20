@@ -24,9 +24,11 @@ The system also has uses in the field of rehabilitation, and could be used to en
 
 This system could be used in combination with FES stimulation to assist those with muscular or neuronal pathologies.
 
+**COVID Disruption**
 
+Due to the current circumstances, we mayu be unable to finish the hardware. To test the software, Finlay Nelson recorded a series of varying EMG measurements. We compiled these measurements into a gitlab repository with an example python script for filtering and plotting.
 
-
+https://gitlab.com/HenryCowan/rte-emg-signals/-/tree/master
 
 
 **Progress** 
