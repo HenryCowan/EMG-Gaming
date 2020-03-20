@@ -95,7 +95,7 @@ void ads1115::endads()
     rcr = wiringPiI2CWriteReg16(fd, ADS1015_REG_POINTER_CONFIG, config);
     if(rcr!= 0)
         {
-            qDebug() << "Failed to set up ads" ;
+            qDebug() << "Failed to end ads" ;
         }
 
 }
