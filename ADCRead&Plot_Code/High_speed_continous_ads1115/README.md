@@ -4,6 +4,13 @@ To control the ads1115 to read at >400hz, the ads driver should control ads1115 
 However, there is no existed ads1115 continous lib in C++ found so I write this QT/C++ one 
 no need to write config every time before every reading, thus time interval can go beneath 2ms 
 2020-03-19
+
 bibliography
 https://blog.csdn.net/weixin_45380951/article/details/103268996
 https://github.com/adafruit/Adafruit_Python_ADS1x15/blob/804728974fcefaafc8b5994be65d22e9c198a8d1/Adafruit_ADS1x15/ADS1x15.py#L297
+
+2020-03-21
+This is the testified version of the ads1115 driver
+modification to previous intro
+        There is no ads1115 continuous mode library in c++, but there is another python one
+        And another code is found which is not yet object oriented but a demo and also continuous mode
