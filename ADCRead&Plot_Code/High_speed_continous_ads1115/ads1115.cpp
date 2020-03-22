@@ -1,3 +1,22 @@
+//#include "adcreader.h"
+//#include <QDebug>
+
+//void ADCreader::run()
+//{
+//	running = true;
+//	while (running) {
+//		qDebug() << "Tick";
+//		sleep(1);
+//	}
+//}
+
+//void ADCreader::quit()
+//{
+//	running = false;
+//	exit(0);
+//}
+
+
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 #include "ads1115.h"
@@ -44,7 +63,7 @@ ads1115::ads1115(uchar addr, QObject *parent)
                     ADS1015_REG_CONFIG_CMODE_TRAD   | // Traditional comparator (default val)
                     ADS1015_REG_CONFIG_CPOL_ACTVHI  |//active high for comparator
                     ADS1015_REG_CONFIG_CLAT_NONLAT  | // Non-latching (default val)
-                   ADS1015_REG_CONFIG_CQUE_1CONV    ; 
+                   ADS1015_REG_CONFIG_CQUE_1CONV    ; // Disable the comparator (default val)
 
 
           /*                    ADS1015_REG_CONFIG_CPOL_ACTVLOW |*/ // Alert/Rdy active low   (default val)
@@ -52,47 +71,67 @@ ads1115::ads1115(uchar addr, QObject *parent)
 
 
     // Sent the config data in the right order
-    config = ((config >> 8) & 0x00FF) | ((config << 8) & 0xFF00);
+//    config = ((config >> 8) & 0x00FF) | ((config << 8) & 0xFF00);
+    int hight = config / 256;
+    int low = config % 256;
+    config = low * 256 + hight;
     int rcr = 0;
     rcr=wiringPiI2CWriteReg16(fd, ADS1015_REG_POINTER_CONFIG, config);
     if(rcr!= 0)
         {
             qDebug() << "Failed to set up ads" ;
         }
-
+    //conversion ready sig set
+//    int high_config = ADS1115_REG_THRES_MSB_1;
+//    high_config=  ((high_config >> 8) & 0x00FF) | ((high_config << 8) & 0xFF00);
+//    int low_config = ADS1115_REG_THRES_MSB_0;
+//    low_config=  ((low_config >> 8) & 0x00FF) | ((low_config << 8) & 0xFF00);
+//    wiringPiI2CWriteReg16(fd,ADS1015_REG_POINTER_HITHRESH, high_config);
+//    wiringPiI2CWriteReg16(fd,ADS1015_REG_POINTER_LOWTHRESH, low_config);
+    // Wait for conversion to complete
+    //  delay(2); // (1/SPS rounded up)
+#if 1
     QElapsedTimer t;
     t.start();
-
-    while(t.elapsed() < 2)
+    while(t.elapsed() < 5)
     {
-      QApplication::processEvents();
+        QApplication::processEvents();
     }
+#endif
 
 }
 
 /* ADS1115 analogRead function
 *===================================*/
 
-
+//static int myAnalogRead(struct wiringPiNodeStruct *node, int pin) {
 float ads1115::readsig() {
-        float value;
-        value=wiringPiI2CReadReg16(fd, ADS1015_REG_POINTER_CONVERT);
+    int value=0;
+    value=wiringPiI2CReadReg16(fd, ADS1015_REG_POINTER_CONVERT);
     // wiringPi doesn't include stdint so everything is an int (int32), this should account for this
+    int hight = value / 256;
+    int low = value % 256;
+    value = low * 256 + hight;
     if(value > 32767)
     {
       value -= 65535;
     }
     float voltage = value * 0.125f / 1000.0f;
-    return voltage;
+    qDebug()<<voltage;
     emit readyread(voltage);
+    return voltage;
+
 }
 
 void ads1115::endads()
 {
     int config = ADS1015_REG_CONFIG_MODE_ENDCON;
-    config = ((config >> 8) & 0x00FF) | ((config << 8) & 0xFF00);
+//    config = ((config >> 8) & 0x00FF) | ((config << 8) & 0xFF00);
+    int hight = config / 256;
+    int low = config % 256;
+    config = low * 256 + hight;
     int rcr = 0;
-    rcr = wiringPiI2CWriteReg16(fd, ADS1015_REG_POINTER_CONFIG, config);
+    rcr=wiringPiI2CWriteReg16(fd, ADS1015_REG_POINTER_CONFIG, config);
     if(rcr!= 0)
         {
             qDebug() << "Failed to end ads" ;

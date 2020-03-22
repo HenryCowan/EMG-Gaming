@@ -6,10 +6,12 @@ CONFIG          += qt warn_on debug
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-INCLUDEPATH += /home/barry/c/iir1
+INCLUDEPATH += /home/pi/c/iir1/
 
-LIBS += /home/barry/c/iir1/libiir_static.a
+LIBS += /home/pi/c/iir1/libiir_static.a
 
+NCLUDEPATH    += /home/ember/opt/rasp-pi-rootfs/usr/local/include
+LIBS += -L/home/ember/opt/rasp-pi-rootfs/usr/local/lib -lwiringPi
 
 TARGET = QwtExample
 

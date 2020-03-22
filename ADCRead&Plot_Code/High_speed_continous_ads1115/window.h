@@ -60,7 +60,7 @@ private:
 
 
 
-    QwtKnob      *knob;
+    //QwtKnob      *knob;
     QwtPlot      *plot1;
     QwtPlotCurve *curve1;
     QwtPlot      *plot2;
@@ -68,7 +68,7 @@ private:
 
 
     // layout elements from Qt itself http://qt-project.org/doc/qt-4.8/classes.html
-    QVBoxLayout  *vLayout;  // vertical layout
+    //QVBoxLayout  *vLayout;  // vertical layout
     QHBoxLayout  *hLayout;  // horizontal layout
 
     static const int plotDataSize = 100;

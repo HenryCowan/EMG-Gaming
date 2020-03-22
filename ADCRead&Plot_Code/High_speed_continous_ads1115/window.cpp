@@ -37,16 +37,16 @@
 
 Window::Window(QWidget *parent): QWidget(parent)
 {
-        knob = new QwtKnob;
-        gain = 2;
+        //knob = new QwtKnob;
+        //gain = 2;
         count = 0;
         // set up the gain knob
-        knob->setValue(gain);
+        //knob->setvalue(gain);
 
 
-        // use the Qt signals/slots framework to update the gain -
-        // every time the knob is moved, the setGain function will be called
-        connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
+        //// use the qt signals/slots framework to update the gain -
+        //// every time the knob is moved, the setgain function will be called
+        //connect( knob, signal(valuechanged(double)), slot(setgain(double)) );
 
 
 
@@ -82,13 +82,13 @@ Window::Window(QWidget *parent): QWidget(parent)
         plot2->replot();
         plot2->show();
 
-        // set up the layout - knob above thermometer
-        vLayout = new QVBoxLayout;
-        vLayout->addWidget(knob);
+        //// set up the layout - knob above thermometer
+        //vLayout = new QVBoxLayout;
+        //vLayout->addWidget(knob);
 
         // plot to the left of knob and thermometer
         hLayout = new QHBoxLayout;
-        hLayout->addLayout(vLayout);
+        //hLayout->addLayout(vLayout);
         hLayout->addWidget(plot1);
         hLayout->addWidget(plot2);
         setLayout(hLayout);
@@ -110,13 +110,13 @@ Window::Window(QWidget *parent): QWidget(parent)
 //initialize ads
     ads1 = new ads1115(0x48);
 
-    connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
+    //connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
     //connect( ads1, SIGNAL(readyread(float)),SLOT(datapros(float))) );
     connect( ads1, &ads1115::readyread, this, &Window::datapros);
 
     rdtimer = new QTimer;
     rdtimer->setTimerType(Qt::PreciseTimer);
-    rdtimer->setInterval(2);//read signal every 2 ms
+    rdtimer->setInterval(5);//read signal every 2 ms
 
 
     rdtimer->start();
@@ -139,7 +139,7 @@ Window::Window(QWidget *parent): QWidget(parent)
 }
 
 Window::~Window() {
-    delete hp1;
+    delete &hp1;
     ads1->endads();
     delete ads1;
 

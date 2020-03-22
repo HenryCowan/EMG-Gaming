@@ -31,7 +31,7 @@
  *         endads() - command ads to stop ad conversion
  * Author: Zonghan Gan
  *  version        date              des
- *  v1.0.0    2020-3-18-23-03    Continous mode of ads1115
+ *  v1.0.0    2020-3-14-21-03    Continous mode of ads1115
 
 \************************************************************/
 
@@ -132,7 +132,11 @@
     #define ADS1015_REG_CONFIG_CQUE_2CONV   (0x0001)  // Assert ALERT/RDY after two conversions
     #define ADS1015_REG_CONFIG_CQUE_4CONV   (0x0002)  // Assert ALERT/RDY after four conversions
     #define ADS1015_REG_CONFIG_CQUE_NONE    (0x0003)  // Disable the comparator(11,can't be for interrupt)
-
+/*=========================================================================
+    Threshold REGISTER
+    -----------------------------------------------------------------------*/
+    #define ADS1115_REG_THRES_MSB_1        (0x8000)  //set msb to be 1
+    #define ADS1115_REG_THRES_MSB_0        (0x0000) //set msb to be 0
 
 /*=========================================================================*/
 
