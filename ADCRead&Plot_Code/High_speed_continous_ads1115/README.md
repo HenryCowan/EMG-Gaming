@@ -12,8 +12,8 @@ https://github.com/adafruit/Adafruit_Python_ADS1x15/blob/804728974fcefaafc8b5994
 2020-03-21
 This is the unit tested version of the ads1115 driver
 modification to previous intro
-        There is no ads1115 continuous mode library in c++, but there is another python one
-        And another code is found which is not yet object oriented but a demo and also continuous mode
+        There is no ads1115 continuous mode library in c++, but there is another python lib
+        And another C code is found which is not yet object oriented but a demo and also continuous mode
 unit test video
 https://www.youtube.com/watch?v=aBgsSWfQyrE
 unit test - conversion ready signal/interrupt
