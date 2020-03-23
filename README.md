@@ -1,57 +1,47 @@
-# Muscle Power Gaming; Get Flexing!
-A github to demonstrate workings of Real Time Embedded (RTE) project at the University of Glasgow. 
 
-"Employ EMG as a method of user input to a gaming environment”
-
-**The aim**
-
-The general aim of this project is to develop a system which detects EMG signals from the bicep and tricep muscles and use these signal to innervate movement in a video game. **Get your flex on!**
-
-Firstly we aim to hack simple, existing games as a proof of concept. We can then develop our own, or hack more complicated games. The more more stuff going on in a game, the better it must be! No?
+# :joystick: Muscle Power Gaming: Get Flexing! :joystick:
 
 
-**Methodology**
+A repository to demomstrate the use of a Raspberry Pi in controlling a video game with realtime EMG signals. This is part of a course hosted by the University of Glasgow in Real Time Embedded Programming.
 
-The methodology is to use two standard Ag/AgCl electrodes placed 20cm apart on the muscle.
-The signal from these electrodes is sent through a two stage amplifer, the first stage being the differential stage, 
-the second being a gain stage. The output of the amplifier is sent to an ADC and then passed to a Raspberry Pi via I2C data protocol for post-processing and game connection. 
+The repository describes how to measure EMG signals from the user's bicep and/or ticep muscles, and how these are then used in turn to control the movement of a paddle in the classic game Pong :ping_pong:(the principles being completely transferrable to other relatively rudimentary games). 
 
-**Potential Uses**
+## Premise
 
-The primary use of this system is to increase the submersion effect of the player into a virtual envinroment.
+The simplest video games have very limited inputs. For some this is simply left/right, while for others it may be up/down/left/right. This makes it relatively straightforward to hack these inputs to be controlled by EMG signals (one muscle controls left, another right, etc). With a 4 channel system, we hope to be able to accomodate single-player versions of games requiring 4 input options, or multiplayer versions of games requiring only 2 (a safe outlet for any pent up testosterone!).
 
-The system also has uses in the field of rehabilitation, and could be used to encourage otherwise unpleasent rehabilitation programs.
+The primary use of this system is to increase the level of submersion the player feels within the gaming environment, providing a new challenge, and adding a new dimension to the gaming experience. The system also has potential application in the field of rehabilitation, encouraging persistence with otherwise unpleasent rehabilitation regimes.
 
-This system could be used in combination with FES stimulation to assist those with muscular or neuronal pathologies.
+## EMG Measurement :muscle:
 
-**COVID Disruption**
+Here we provide a description of the methods that should be employed in measuring user EMG. In light of the recent Covid-19 outbreak, the hardware components of this project remain incomplete and as such sample EMG data was instead obtained using a USB-DUX and bioamplifier for software testing purposes. The acquired EMG data has been deposited in Gitlab, and can be found through the link below, along with an example Python script for filtering and plotting.
 
-Due to the current circumstances, we mayu be unable to finish the hardware. To test the software, Finlay Nelson recorded a series of varying EMG measurements. We compiled these measurements into a gitlab repository with an example python script for filtering and plotting.
+[Sample Data](https://gitlab.com/HenryCowan/rte-emg-signals/-/tree/master)
 
-https://gitlab.com/HenryCowan/rte-emg-signals/-/tree/master
+Standard Ag/AgCl electrodes should be place approximately 20cm apart on the chosen muscle(s). In our case, measuring 4 channels, this required a pair of electrodes on each bicep and a pair on each tricep, with a further electrode attached to the ankle to act as ground (9 total). For a 2 channel approach, any 2 pairs of electrodes may be discounted, leaving 5 total.
 
+Had the hardware components been completed, these signals would be sent through a two stage amplifer, the first a differential stage and the second a gain stage. The output from the amplifier is sent to an ADC (ADS1115) and passed to a Raspberry Pi via the I2C bus protocol for post-processing and game connection. Using the sample EMG data, the amplifification stage was subverted, applying directly to the ADC component.  
 
-**Progress** 
+## Progress
 
-We've achieved a working AD7705 pcb to read in a stream of data to start plotting whilst the EMG pcb is being fabricated and tested.
+- [x] A PCB using the AD7705 has been produced to read an artificial stream of data. This will allow data handling to be explored while fabricating and testing components associated with acquiring EMG data.
 
-A realtime Qt plot has been acheived, the basis of the plot is presented with window.cpp. 
+- [x] Through use of the QT toolkit, a realtime plotting script has been tested. It is thought that presenting this to the user as a form of biofeedback could act as an effective means of encouragement. 
 
-The EMG adc has been selected as is getting implemented onto a custom pcb for 4 channel EMG recording.
+- [x] The ADC for the EMG recording has been selected as the ADS1115, and is being implemented into a custom PCB with 4 channel inputs. The specifications of the ADS1115 can be found through the link below:
 
+[ADS1115 Spec Sheet](http://www.ti.com/lit/ds/symlink/ads1114.pdf)
 
-=======================================================================================
+- [x] The PCB using the ADS1115 now detects data in realtime from 1 channel using I2C. This single channel data can be used in the game (Pong), transferring data using the UDP and displaying on android devices, and responds to changes in input to the ADC
 
-We've swapped ADC's to the ads1115 and are reading in rt data from all channels using i2c.
+- [ ] Apply prerecorded EMG data to the ADC to control the game
 
-The game is now fully functional and displays on android devices via UDP data transfer.
+- [ ] Apply live incoming EMG data to control the game
 
-The game responds to changes in signal from the ADC.
+## Social Media
 
-Only thing left to do is get some muscle signals!
+Below are the links to our Facebook and Twitter pages where you can keep up to date with all our latest and most exciting developments!
 
+[Muscle Power Gaming - Facebook](https://www.facebook.com/EMGamingRPI/)
 
-Links to our Facebook and Twitter pages can be found below, where you can keep up to date with all our latest and most exciting developments!
-
-https://www.facebook.com/EMGamingRPI/
-https://twitter.com/emg_pi
+[Muscle Power Gaming - Twitter](https://twitter.com/emg_pi)
