@@ -1,14 +1,16 @@
-The hardware aspect of this porject consists of: a 4, differential amplifiers, used for obtaining a differential EMG signal; 
-2 adc's with i2c bus protocol output; a reference voltage circuit to provide the initial amplifiers with a 1.67V reference; 
-and then your standard decoupling and protection.
+# Hardware Design :hammer_and_wrench:
 
-The amplifiers used are INA126's.
-The ADC's used are the ADS1115.
-A buffer amplifier is also used for the reference, this is a TL071.
+As a result of the Covid-19 outbreak and associated facility closures, testing of hardware components described here remains incomplete
 
-The adc's have 4 input channels however we will only be using two of these channels for each device to maximise the sampling rate 
-of each chip. Protection diodes are situated before the amplifier to ensure any static charge buildup from the subject is disipated
-through ground rather than through the amps!
+Important features of the design:
 
-The board is currently in production.
+1. The differential amplifiers (INA126) are used to obtain differential EMG signals 
+   1. These input to the ADCs (ADS1115).
+   1. The ADCs utilise the I2C bus protocol
+2. A reference voltage circuit is used to provide a 1.67V reference to the amplifiers
+4. A buffer amplifier (TL071) is employed as reference. 
+5. Standard decoupling and protcetive measures are in place
 
+**The ADS1115 has the potential to read 4 input channels. However, only two of these channels are utilised per components to maintain a high rate of sampling of each channel**
+
+**Any static charge build-up from the user is dissipated through ground using upstream diodes to preserve the amplifiers**
