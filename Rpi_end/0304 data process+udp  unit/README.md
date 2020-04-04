@@ -1,8 +1,6 @@
-# QwtExample
+# QwtExample+iir+power time smooth+udp sending
 
-A simple example program using Qt/Qwt widgets to be used as a base for students doing Raspberry Pi data acquisition. It also creates a Thread which could be used to acquire ADC data with the help of poll/select and storing it in a ringbuffer.
-
-![alt tag](screenshot.png)
+This is a unit test to do the data processing and udp sending of an artificial function
 
 ## Making it work
 

@@ -6,9 +6,9 @@ CONFIG          += qt warn_on debug
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-INCLUDEPATH += /home/barry/c/iir1
+INCLUDEPATH += /home/zonghan-gan/c/lib/iir1
 
-LIBS += /home/barry/c/iir1/libiir_static.a
+LIBS += /home/zonghan-gan/c/lib/iir1/libiir_static.a
 
 
 TARGET = QwtExample
@@ -16,6 +16,6 @@ TARGET = QwtExample
 greaterThan(QT_MAJOR_VERSION, 4): LIBS += -lqwt-qt5 -lm
 lessThan(QT_MAJOR_VERSION, 5): LIBS += -lqwt -lm
 
-HEADERS += window.h adcreader.h
+HEADERS += window.h
 
-SOURCES += main.cpp window.cpp adcreader.cpp
+SOURCES += main.cpp window.cpp

@@ -26,7 +26,7 @@
  const int order = 40;
 
  // sampling rate here 1kHz as an example
- const float samplingrate = 1000;
+ const float samplingrate = 860;
 
  const quint16 sderprt = 1117;
  const quint16 rscverprt = 1112;
@@ -110,17 +110,7 @@ Window::Window(QWidget *parent): QWidget(parent)
     flpower = fopen("flpowertimesmooth.dat","wt");
 
 //initialize ads
-//    ads1 = new ads1115(0x48);
 
-    //connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
-    //connect( ads1, SIGNAL(readyread(float)),SLOT(datapros(float))) );
-//    connect( ads1, &ads1115::readyread, this, &Window::datapros);
-
-//    rdtimer = new QTimer;
-//    rdtimer->setTimerType(Qt::PreciseTimer);
-//    rdtimer->setInterval(5);//read signal every 2 ms
-//    rdtimer->start();
-//    connect(rdtimer, &QTimer::timeout, ads1, &ads1115::readsig);
     rftimer = new QTimer;
     //rftimer->setTimerType(Qt::PreciseTimer);
     rftimer->setInterval(20);//refresh every ~20ms
