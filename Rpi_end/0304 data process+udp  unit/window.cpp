@@ -14,7 +14,7 @@
  const int order = 40;
 
  // sampling rate here 1kHz as an example
- const float samplingrate = 1000;
+ const float samplingrate = 200;
 
  const quint16 sderprt = 1117;
  const quint16 rscverprt = 1112;
@@ -124,6 +124,7 @@ Window::~Window() {
 //	delete adcreader;
 
     //close the file writing
+    delete sdersc;
     fclose(florigin);
     fclose(flhp1);
     fclose(flpower);

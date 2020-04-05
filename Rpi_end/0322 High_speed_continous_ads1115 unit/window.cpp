@@ -25,7 +25,7 @@
  const int order = 40;
 
  // sampling rate here 1kHz as an example
- const float samplingrate = 1000;
+ const float samplingrate = 860;
 
  const quint16 sderprt = 1117;
  const quint16 rscverprt = 1112;
