@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
 
     Udprsvertest ur;
-    qDebug() << "--- receiving";
+
     return a.exec();
 }
 

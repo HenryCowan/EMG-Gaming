@@ -9,7 +9,20 @@ Udprsvertest::Udprsvertest(QObject *p) :
     QObject(p)
 {
     rsverSocket = new QUdpSocket;
-    rsverSocket->bind(QHostAddress("127.0.0.1"), PORT);
+    //bind local address and port for receiving
+    //bool bdrsvsc = rsverSocket->bind(QHostAddress("172.30.141.244"), PORT);
+    //bool bdrsvsc = rsverSocket->bind(QHostAddress("172.30.156.14"), PORT);
+    bool bdrsvsc = rsverSocket->bind(QHostAddress("127.0.0.1"), PORT);
+    //bool bdrsvsc = rsverSocket->bind(QHostAddress::LocalHost, PORT);
+    if(bdrsvsc>0)
+      { qDebug()<<"bind success";
+        qDebug() << "--- receiving--";
+    }
+    else
+    {
+        qDebug()<<"bind failed";
+        qDebug()<<rsverSocket->error();
+    }
     connect(rsverSocket, SIGNAL(readyRead()), this, SLOT(receive()));
 }
 
@@ -25,7 +38,13 @@ void Udprsvertest::receive()
     {
         dtstrm.resize(rsverSocket->pendingDatagramSize());
         rsverSocket->readDatagram(dtstrm.data(), dtstrm.size());
-        qDebug() << "data: " << dtstrm;
+
+        bool cktp2;
+        const float outval= dtstrm.toFloat(&cktp2);
+        if (!cktp2) qDebug() << "received but data error, data type Conversion failed";
+
+        qDebug() << "data: " << outval;
     }
 }
 //inspired by https://blog.csdn.net/weixin_42216430/article/details/80780297
+
