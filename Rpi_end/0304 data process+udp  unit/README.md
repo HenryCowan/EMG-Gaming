@@ -1,6 +1,6 @@
 # QwtExample+iir+power time smooth+udp sending
 
-This is a unit test to do the data processing and udp sending of an artificial function
+This is a unit test to do the data processing and udp sending of an artificial function sampling at 200hz using the coarse timer of qt
 
 ## Making it work
 
