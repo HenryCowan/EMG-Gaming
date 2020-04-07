@@ -3,7 +3,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QGraphicsEllipseItem>
-#include "gameplay.h"
+
+
 #include <QPen>
 #include <QResizeEvent>
 #include <QDebug>
@@ -12,15 +13,19 @@
 
 const quint16 rsPort = 1112;
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(int scrnwidth, int scrnheight, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     iScore ( 0 ),
-    iBallMotion ( -0.5, -0.5 ),
+    iBallMotion ( -2, -2 ),
     iP2Motion( 0 ),
     iP1Motion( 0 )
 {
+    wdwidth=scrnwidth-10;
+    wdheight=scrnheight-10;
+
     ui->setupUi(this);
+    this->setFixedSize(wdwidth,wdheight);
 
     iScene = new QGraphicsScene(this);
 
@@ -29,53 +34,49 @@ MainWindow::MainWindow(QWidget *parent) :
     iP1 = new QGraphicsRectItem(0, 0, 80, 20);
     iP1->setBrush(QBrush(Qt::green));
 
-    iBall = new QGraphicsEllipseItem(0, 0, 15, 15);
-    iBall->setBrush(QBrush(Qt::magenta));
+    iBall = new QGraphicsEllipseItem(0, 0, 30, 30);
+    //    iBall->setBrush(QBrush(Qt::magenta));
+    iBall->setBrush(QBrush(Qt::green));
 
-    ui->boardView->setScene(iScene);
-
-
-    iTimer = new QTimer(this);
-    iTimer->setInterval(2);
-    //condition of timer start
-    iTimer->start();
-    QObject::connect(iTimer, SIGNAL(timeout()), this, SLOT(Position()));
+    //ui->boardView->setScene(iScene);
 
 
-    iScene->setSceneRect(0, 0, 350, 320);
+
+
+//measure timer accuracy
+    //    QElapsedTimer time_measure;
+    //    timer_measure=time_measure;
+
+    iScene->setSceneRect(0, 0, wdwidth * 0.95, wdheight * 0.8);
+
+
+
+
+    iP1->setPos(wdwidth*0.45, wdheight*0.815);
+    iP2->setPos(wdwidth*0.45, -wdheight*0.0375); //iScene->width() * 0.39, iScene->height() * 0.94); //blue
+    iBall->setPos(iScene->width() * 0.50, iScene->height() * 0.50);
+
+
     iScene->addItem(iP2);
     iScene->addItem(iP1);
     iScene->addItem(iBall);
 
-    iP2->setPos(135, 5);
-    iP1->setPos(135, 300);
-    iBall->setPos(150, 150);
-
-
-
-
-
-
-
-    QSize m(iScene->sceneRect().size().width() + 10, iScene->sceneRect().size().height() + 10);
-    ui->boardView->setMinimumSize(m);
-
-    resize(minimumSize());
-
+    ui->boardView->setScene(iScene);
 
     QObject::connect(this, SIGNAL(goal(int)),this, SLOT(refreshScore(int)));
 
-    QObject::connect(this, SIGNAL(P2isleft()),this, SLOT(P2Moveleft()));
-    QObject::connect(this, SIGNAL(P2isright()),this, SLOT(P2Moveright()));
+
 
 
 //receive udp sig
     rsverSocket = new QUdpSocket;
-    //bind local address and port for receiving
-    //local address
+//bind local address and port for receiving
+//local address
     //bool bdrsvsc = rsverSocket->bind(QHostAddress("172.30.141.244"), rsPort);
-    bool bdrsvsc = rsverSocket->bind(QHostAddress("127.0.0.1"), rsPort);
-
+    //bool bdrsvsc = rsverSocket->bind(QHostAddress("192.168.1.163"), rsPort);
+    //bool bdrsvsc = rsverSocket->bind(QHostAddress::LocalHost, rsPort);
+    //bool bdrsvsc = rsverSocket->bind(QHostAddress("127.0.0.1"), rsPort);
+    bool bdrsvsc = rsverSocket->bind(QHostAddress("192.168.43.161"), rsPort);//android hot spot
     //bool bdrsvsc = rsverSocket->bind(QHostAddress::LocalHost, rsPort);
     if(bdrsvsc>0)
       { qDebug()<<"bind success";
@@ -87,6 +88,8 @@ MainWindow::MainWindow(QWidget *parent) :
         qDebug()<<rsverSocket->error();
     }
     connect(rsverSocket, SIGNAL(readyRead()), this, SLOT(receive()));
+
+    connect(this, SIGNAL(rfsh()), this, SLOT(Position()));
 }
 
 MainWindow::~MainWindow()
@@ -103,6 +106,8 @@ void MainWindow::refreshScore(int count)
 
 void MainWindow::Position()
 {
+    qDebug()<<timer_measure.elapsed();
+    iBall->setBrush(QBrush(Qt::magenta));
     qreal Xprime = iBall->pos().x() + iBallMotion.x();
     qreal Yprime = iBall->pos().y() + iBallMotion.y();
 
@@ -153,6 +158,7 @@ void MainWindow::Position()
 }
 
 
+
 qreal MainWindow::CpuP1Motion()
 {
     qreal dir = 0;
@@ -160,46 +166,49 @@ qreal MainWindow::CpuP1Motion()
     if ( iBall->pos().x() + iBallMotion.x() > iP1->sceneBoundingRect().right() )
     {
         // move right
-        dir = 5.0/6.0;
+        dir = 5.0;// /6.0;
     }
     else if ( iBall->pos().x() + iBallMotion.x() < iP1->sceneBoundingRect().left() )
     {
         // move left
-        dir = -5.0/6.0;
+        dir = -5.0 ;// /6.0;
     }
 
     return dir;
 
 }
-void MainWindow::P2Moveright()
-{
-    iP2Motion  = (iP2Motion == 0 ? 2 : 0);
-    qDebug()<<"move right";
-}
-void MainWindow::P2Moveleft()
-{
-    iP2Motion = (iP2Motion == 0 ? -2 : 0);
-    qDebug()<<"move left";
-}
+
 
 
 void MainWindow::receive()
 {
-    QByteArray dtstrm;
+//    QByteArray dtstrm;
     while(rsverSocket->hasPendingDatagrams())
     {
-        dtstrm.resize(rsverSocket->pendingDatagramSize());
-        rsverSocket->readDatagram(dtstrm.data(), dtstrm.size());
 
-        bool cktP1;
-        const float outval= dtstrm.toFloat(&cktP1);
-        if (!cktP1) qDebug() << "received but data error, data type Conversion failed";
-// //test outvalue
-//        qDebug() << "data: " << outval;
-        if (outval<0) emit P2isleft();
-        else if (outval>0)
+	int nofch=1;
+        float  outval[nofch];
+        rsverSocket->readDatagram((char*)outval, sizeof(outval));
+        qDebug()<<outval[0];
+        if (outval[0]>0.0003)
         {
-            emit P2isright();
+
+            iP2Motion = (iP2Motion == 0 ? -15 : 0);
+
         }
+        else if(outval[0]<0.0002) //if (outval<0)
+        {
+
+           iP2Motion  = (iP2Motion == 0 ? 15 : 0);
+
+        }
+    this->rfshcount++;
+
+    }
+    if (this->rfshcount>5)
+    {
+        emit rfsh();
+        this->rfshcount=0;
+        qDebug()<<"rfsh";
     }
 }

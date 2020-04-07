@@ -1,8 +1,5 @@
-This is a combination of GUI and signal controlled core. The Qkeypress event based kernel was removed and rewritten to be controlled by an external signal, eg. electromyographic signal (EMG). This is used for signal controlled game of emg for FES or other rehabilitation purpose
-```
-	200301-2219
-	The calculation of direction based on sig reloading is coded to under control of QpreciseTimer
+server(mobile) pong demo: this is a demo using read in processed emg data to play pong game
+this demo is for 1 emg channel
 
-```
-	
 
+unit test video

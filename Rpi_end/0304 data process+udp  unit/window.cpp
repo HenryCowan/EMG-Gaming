@@ -133,7 +133,7 @@ Window::~Window() {
 void Window::timerEvent( QTimerEvent * )
 {
     //v=adcreader.read();
-    double inVal1 = gain * (sin(2*2.0 * M_PI  *count)+sin(10*2.0 * M_PI  *count)+sin(20*2.0 * M_PI  *count)+sin(30*2.0 * M_PI  *count)+sin(40*2.0 * M_PI  *count)+sin(50*2.0 * M_PI  *count)+sin(60*2.0 * M_PI  *count)+sin(70*2.0 * M_PI  *count)+sin(80*2.0 * M_PI  *count)+sin(90*2.0 * M_PI  *count)+sin(100*2.0 * M_PI  *count)+sin(200*2.0 * M_PI  *count));
+    double inVal1 = pow(10,30.0)*gain * (sin(2*2.0 * M_PI  *count)+sin(10*2.0 * M_PI  *count)+sin(20*2.0 * M_PI  *count)+sin(30*2.0 * M_PI  *count)+sin(40*2.0 * M_PI  *count)+sin(50*2.0 * M_PI  *count)+sin(60*2.0 * M_PI  *count)+sin(70*2.0 * M_PI  *count)+sin(80*2.0 * M_PI  *count)+sin(90*2.0 * M_PI  *count)+sin(100*2.0 * M_PI  *count)+sin(200*2.0 * M_PI  *count));
     // this would be the filtered data
     double inVal2 = hp1.filter(inVal1);
     inVal2=pow(inVal2,2.0);
@@ -173,6 +173,7 @@ void Window::timerEvent( QTimerEvent * )
 
 
     fprintf(florigin,"%e\n",inVal1);
+    qDebug()<<"datasaved";
     fprintf(flhp1,"%e\n",inVal2);
     fprintf(flpower,"%e\n",inVal3);
 
@@ -181,24 +182,24 @@ void Window::timerEvent( QTimerEvent * )
     bool cktp;
     const double outval= msg.toDouble(&cktp);
     if (!cktp and outval != inVal2) qDebug() << "before sending data, data type Conversion failed";
-    qDebug() << "--- Sending";
-    qDebug() << "data: " << msg;
+//    qDebug() << "--- Sending";
+//    qDebug() << "data: " << msg;
   //       qDebug() << "sendingtest " << msg;
-    qDebug() << "sendingtest " << outval;
+//    qDebug() << "sendingtest " << outval;
     //send and check
   //        bool cksd = sdersc.writeDatagram(msg, QHostAddress("192.168.43.30"), rscverprt);
     bool cksd = sdersc->writeDatagram(msg, QHostAddress("127.0.0.1"), rscverprt);
     //bool cksd = sdersc.writeDatagram(msg, QHostAddress::AnyIPv4, 1112);
-    //bool cksd = sdersc.writeDatagram(msg, QHostAddress::LocalHost, 1112);
-    if(cksd>0)
-        qDebug()<<"successfully send";
-    else
-    {
-    //see the fail reason with error()
-        qDebug()<<"sending is failed";
-        qDebug()<<sdersc->error();
+//    //bool cksd = sdersc.writeDatagram(msg, QHostAddress::LocalHost, 1112);
+//    if(cksd>0)
+//        qDebug()<<"successfully send";
+//    else
+//    {
+//    //see the fail reason with error()
+//        qDebug()<<"sending is failed";
+//        qDebug()<<sdersc->error();
 
-    }
+//    }
 
 
 
