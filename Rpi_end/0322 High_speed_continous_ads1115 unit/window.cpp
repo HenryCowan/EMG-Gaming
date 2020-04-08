@@ -41,14 +41,7 @@ Window::Window(QWidget *parent): QWidget(parent)
         //gain = 2;
         count = 0;
         // set up the gain knob
-        //knob->setvalue(gain);
-
-
-        //// use the qt signals/slots framework to update the gain -
-        //// every time the knob is moved, the setgain function will be called
-        //connect( knob, signal(valuechanged(double)), slot(setgain(double)) );
-
-
+ 
 
 
         // set up the initial plot data
@@ -66,14 +59,13 @@ Window::Window(QWidget *parent): QWidget(parent)
 
         curve1 = new QwtPlotCurve;
         curve2 = new QwtPlotCurve;
-        //	curve3 = new QwtPlotCurve;
+
         plot1 = new QwtPlot;
         plot2 = new QwtPlot;
         // make a plot curve from the data and attach it to the plot
         curve1->setSamples(xData1, yData1, plotDataSize);
         curve1->attach(plot1);
-        //curve3->setSamples(xData3, yData3, plotDataSize);
-        //curve3->attach(plot1);
+
         curve2->setSamples(xData2, yData2, plotDataSize);
         curve2->attach(plot2);
 
@@ -83,12 +75,10 @@ Window::Window(QWidget *parent): QWidget(parent)
         plot2->show();
 
         //// set up the layout - knob above thermometer
-        //vLayout = new QVBoxLayout;
-        //vLayout->addWidget(knob);
+
 
         // plot to the left of knob and thermometer
         hLayout = new QHBoxLayout;
-        //hLayout->addLayout(vLayout);
         hLayout->addWidget(plot1);
         hLayout->addWidget(plot2);
         setLayout(hLayout);
@@ -110,8 +100,7 @@ Window::Window(QWidget *parent): QWidget(parent)
 //initialize ads
     ads1 = new ads1115(0x48);
 
-    //connect( knob, SIGNAL(valueChanged(double)), SLOT(setGain(double)) );
-    //connect( ads1, SIGNAL(readyread(float)),SLOT(datapros(float))) );
+
     connect( ads1, &ads1115::readyread, this, &Window::datapros);
 
     rdtimer = new QTimer;
@@ -122,7 +111,7 @@ Window::Window(QWidget *parent): QWidget(parent)
     rdtimer->start();
     connect(rdtimer, &QTimer::timeout, ads1, &ads1115::readsig);
     rftimer = new QTimer;
-    //rftimer->setTimerType(Qt::PreciseTimer);
+
     rftimer->setInterval(20);//refresh every ~20ms
     //condition of timer start
     rftimer->start();
@@ -151,8 +140,6 @@ Window::~Window() {
 
 void Window::datapros(float inval)
 {
-    //v=adcreader.read();
-    //double inVal1 = gain * (sin(2*2.0 * M_PI  *count)+sin(10*2.0 * M_PI  *count)+sin(20*2.0 * M_PI  *count)+sin(30*2.0 * M_PI  *count)+sin(40*2.0 * M_PI  *count)+sin(50*2.0 * M_PI  *count)+sin(60*2.0 * M_PI  *count)+sin(70*2.0 * M_PI  *count)+sin(80*2.0 * M_PI  *count)+sin(90*2.0 * M_PI  *count)+sin(100*2.0 * M_PI  *count)+sin(200*2.0 * M_PI  *count));
 
     float inVal1= inval;
     float inVal1_2 = hp1.filter(inVal1);

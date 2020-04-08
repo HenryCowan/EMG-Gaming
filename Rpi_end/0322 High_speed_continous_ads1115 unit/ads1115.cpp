@@ -20,12 +20,7 @@ int load_config(int config)
 ads1115::ads1115(uchar addr, QObject *parent)
     : QObject(parent)
 {
-//  struct wiringPiNodeStruct *node;
 
-//  node = wiringPiNewNode(pinBase,4);
-//  fd = wiringPiI2CSetup(addrs);
-//  node->fd = fd;
-//  node->analogRead = myAnalogRead;
     this->iicaddr=addr;
     this->fd = wiringPiI2CSetup(addr);
 
@@ -58,10 +53,6 @@ ads1115::ads1115(uchar addr, QObject *parent)
 
 
     // Sent the config data in the right order
-//    config = ((config >> 8) & 0x00FF) | ((config << 8) & 0xFF00);
-//    int hight = config / 256;
-//    int low = config % 256;
-//    config = low * 256 + hight;
     config=load_config(config);
     int rcr = 0;
     rcr=wiringPiI2CWriteReg16(fd, ADS1015_REG_POINTER_CONFIG, config);
@@ -87,10 +78,7 @@ ads1115::ads1115(uchar addr, QObject *parent)
         {
             qDebug() << "Failed to set up ads" ;
         }
-    //    low_config=  ((low_config >> 8) & 0x00FF) | ((low_config << 8) & 0xFF00);
 
-    // Wait for 1st conversion to complete
-    //  delay(2); // (1/SPS rounded up)
 #if 1
     QElapsedTimer t;
     t.start();
