@@ -94,7 +94,7 @@ Window::Window() : gain(2), count(0)
 
     // Butterworth lowpass
 
-    const float cutoff_frequency = 2; // Hz
+    const float cutoff_frequency = 10; // Hz
     const float passband_gain = 10; // db
     hp1.setup (samplingrate, cutoff_frequency);
 
@@ -122,10 +122,14 @@ Window::~Window() {
 
     //close the file writing
     delete sdersc;
-    fclose(florigin);
-    fclose(flhp1);
-    fclose(flpower);
-}
+	delete knob;
+	delete plot1;
+	delete curve1;
+	delete plot2;
+	delete curve2;
+	delete vLayout;
+	delete hLayout;
+	
 
 void Window::timerEvent( QTimerEvent * )
 {
