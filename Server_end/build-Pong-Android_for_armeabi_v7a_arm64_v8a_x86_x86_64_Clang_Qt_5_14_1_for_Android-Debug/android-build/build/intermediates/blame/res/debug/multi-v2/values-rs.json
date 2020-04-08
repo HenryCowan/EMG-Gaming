@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/zonghan-gan/git/RTEP/Server_end/build-Pong-Android_for_armeabi_v7a_arm64_v8a_x86_x86_64_Clang_Qt_5_14_1_for_Android-Debug/android-build/build/intermediates/incremental/mergeDebugResources/merged.dir/values-rs/values-rs.xml",
+            "map": [
+                {
+                    "source": "/home/zonghan-gan/Qt5.14.1/5.14.1/android/src/android/java/res/values-rs/strings.xml",
+                    "from": {
+                        "startLines": "4,3,2,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "290,173,55,408",
+                        "endColumns": "117,116,117,92",
+                        "endOffsets": "403,285,168,496"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,173,290,408",
+                        "endColumns": "117,116,117,92",
+                        "endOffsets": "168,285,403,496"
+                    }
+                }
+            ]
+        }
+    ]
+}

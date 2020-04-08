@@ -85,8 +85,7 @@ void GPIOlis::run() {
 }
 void GPIOlis::quit()
 {
-//    ads1->endads();
-//    delete ads1;
+
     delete sdtmr;
     QThread::quit();
 }

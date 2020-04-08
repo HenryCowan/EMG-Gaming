@@ -38,17 +38,9 @@
 
 Window::Window(QWidget *parent): QWidget(parent)
 {
-        //knob = new QwtKnob;
-        //gain = 2;
+
         count = 0;
 
-        // set up the gain knob
-        //knob->setvalue(gain);
-
-
-        // // use the qt signals/slots framework to update the gain -
-        // // every time the knob is moved, the setgain function will be called
-        //connect( knob, signal(valuechanged(double)), slot(setgain(double)) );
 
 
 
@@ -71,11 +63,10 @@ Window::Window(QWidget *parent): QWidget(parent)
         //	curve3 = new QwtPlotCurve;
         plot1 = new QwtPlot;
         plot2 = new QwtPlot;
-        // make a plot curve from the data and attach it to the plot
+// make a plot curve from the data and attach it to the plot
         curve1->setSamples(xData1, yData1, plotDataSize);
         curve1->attach(plot1);
-        //curve3->setSamples(xData3, yData3, plotDataSize);
-        //curve3->attach(plot1);
+
         curve2->setSamples(xData2, yData2, plotDataSize);
         curve2->attach(plot2);
 
@@ -84,13 +75,10 @@ Window::Window(QWidget *parent): QWidget(parent)
         plot2->replot();
         plot2->show();
 
-        // // set up the layout - knob above thermometer
-        //vLayout = new QVBoxLayout;
-        //vLayout->addWidget(knob);
 
-        // plot to the left of knob and thermometer
+
         hLayout = new QHBoxLayout;
-        //hLayout->addLayout(vLayout);
+
         hLayout->addWidget(plot1);
         hLayout->addWidget(plot2);
         setLayout(hLayout);
@@ -112,9 +100,9 @@ Window::Window(QWidget *parent): QWidget(parent)
 //initialize ads
 
     rftimer = new QTimer;
-    //rftimer->setTimerType(Qt::PreciseTimer);
+
     rftimer->setInterval(20);//refresh every ~20ms
-    //condition of timer start
+
     rftimer->start();
     connect(rftimer, &QTimer::timeout, this, &Window::plotrefresh);
 //initialize UDP sender the udp has been testified and commented as not essential in this test, yet have fun if you want--Zonghan Gan
@@ -128,13 +116,12 @@ Window::Window(QWidget *parent): QWidget(parent)
     gpiolis1=new GPIOlis();
     connect( gpiolis1, &GPIOlis::readyread, this, &Window::datapros);
     gpiolis1->start();
-    //gpiolis1->wait();
+
 }
 
 Window::~Window() {
     delete &hp1;
-//    ads1->endads();
-//    delete ads1;
+
     gpiolis1->quit();
     delete gpiolis1;
 //close the file writing
@@ -146,26 +133,24 @@ Window::~Window() {
 void Window::datapros(float inval)
 {
     qDebug()<<"new data feed in";
-    //v=adcreader.read();
-    //double inVal1 = gain * (sin(2*2.0 * M_PI  *count)+sin(10*2.0 * M_PI  *count)+sin(20*2.0 * M_PI  *count)+sin(30*2.0 * M_PI  *count)+sin(40*2.0 * M_PI  *count)+sin(50*2.0 * M_PI  *count)+sin(60*2.0 * M_PI  *count)+sin(70*2.0 * M_PI  *count)+sin(80*2.0 * M_PI  *count)+sin(90*2.0 * M_PI  *count)+sin(100*2.0 * M_PI  *count)+sin(200*2.0 * M_PI  *count));
 
     float inVal1= inval;
     float inVal1_2 = hp1.filter(inVal1);
-    //calculate the time-smoothed power of sig before renewing the filtered data
+//calculate the time-smoothed power of sig before renewing the filtered data
     float inVal1_3= pow(inVal1_2,2.0);
     sumpower -=pow(yData2[0],2.0);
     sumpower += inVal1_3;
     float inVal3 = sumpower/float(plotDataSize);
 
-    // add the new original input to the plot
+// add the new original input to the plot
     memmove( yData1, yData1+1, (plotDataSize-1) * sizeof(float) );
     yData1[plotDataSize-1] = inVal1;
 
 
-    //add the new filtered input to the plot
+//add the new filtered input to the plot
     memmove( yData2, yData2+1, (plotDataSize-1) * sizeof(float) );
     yData2[plotDataSize-1] = inVal1_2;
-    //add the new filtered and powered input to the plot
+//add the new filtered and powered input to the plot
     memmove( yData3, yData3+1, (plotDataSize-1) * sizeof(float) );
     yData3[plotDataSize-1] = inVal3;
 
@@ -183,8 +168,7 @@ void Window::datapros(float inval)
     const float outval= msg.toFloat(&cktp);
     if (!cktp and outval != inVal1_2) qDebug() << "before sending data, data type Conversion failed";
     qDebug() << "--- Sending";
-    //qDebug() << "data: " << msg;
-    //send and check
+ 
     bool cksd = sdersc->writeDatagram(msg, QHostAddress("192.168.1.165"), rscverprt);
     //bool cksd = sdersc.writeDatagram(msg, QHostAddress::LocalHost, 1112);
     if(cksd>0)
@@ -213,9 +197,4 @@ void Window::plotrefresh()
         curve2->setSamples(xData3, yData3, plotDataSize);
         plot2->replot();
 }
-// this function can be used to change the gain of the A/D internal amplifier
-//void Window::setGain(double gain)
-//{
-//        // for example purposes just change the amplitude of the generated input
-//        this->gain = gain;
-//}
+

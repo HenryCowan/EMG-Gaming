@@ -5,6 +5,19 @@
 #include <QTimer>
 extern int gpipinterrupt;
 const int datasize=61855;
+/************************************************************\
+ * class: GPIOlis
+ * feature: read in 1000hz emg data from text, send sig every 1ms using QpreciseTimer
+ * function:
+*		sddata();                      send data everytime timer is out
+
+ * Author: Zonghan Gan
+ *  version        date              des
+ *  v1.0.0    2020-4-8-21-03    Pong gui on udp emg sig
+
+\************************************************************/
+
+
 class GPIOlis : public QThread {
     Q_OBJECT
     int flag=1;

@@ -23,15 +23,15 @@ class QTimer;
 
 
 /************************************************************\
- * class: ads1115(up to 4)
- * feature: define a ads1115 device with an iic adress (0x48, 0x49, 0x4A, 0X4B)
+ * class: window 
+ * feature: get data from GPIOlis, filter and process and send through udp to server (android)
  * function:
- *         datapros() - filter, power and time smooth of data
+ *         datapros() - filter, power and time smooth of data, udp sending
  *         plotrefresh() - refresh plot with new data
  *
  * Author: Bernd Porr; Zonghan Gan
- *  version        date              des
- *  v4.0.0    2020-3-19-00-16     test of adslib, controlled by timer
+ *  version        date              
+ *  v4.0.0    2020-3-19-00-16     
 
 \************************************************************/
 
@@ -71,7 +71,7 @@ private:
     //QVBoxLayout  *vLayout;  // vertical layout
     QHBoxLayout  *hLayout;  // horizontal layout
 
-    static const int plotDataSize = 100;
+    static const int plotDataSize = 5;
 
     // data arrays for the plot
     double xData1[plotDataSize];

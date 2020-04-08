@@ -70,8 +70,7 @@ Window::Window(QWidget *parent): QWidget(parent)
 // make a plot curve from the data and attach it to the plot
         curve1->setSamples(xData1, yData1, plotDataSize);
         curve1->attach(plot1);
-        //curve3->setSamples(xData3, yData3, plotDataSize);
-        //curve3->attach(plot1);
+
         curve2->setSamples(xData2, yData2, plotDataSize);
         curve2->attach(plot2);
 
@@ -93,7 +92,7 @@ Window::Window(QWidget *parent): QWidget(parent)
 
 
 // Butterworth highpass
-    const float cutoff_frequency = 50; // Hz
+    const float cutoff_frequency = 2; // Hz
     const float passband_gain = 10; // db
     hp1.setup (samplingrate, cutoff_frequency);
 
@@ -132,8 +131,7 @@ Window::Window(QWidget *parent): QWidget(parent)
 
 Window::~Window() {
     delete &hp1;
-//    ads1->endads();
-//    delete ads1;
+
     gpiolis1->quit();
     delete gpiolis1;
 //close the file writing
@@ -222,8 +220,8 @@ void Window::datapros(float inval,float inval_2)
 // transforming float into qbytearray
     int len_fVar = sizeof(fVar); // 4*4 = 16 bit
 //send and check
-    bool cksd = sdersc.writeDatagram(msg, QHostAddress("192.168.43.30"), rscverprt);
-    //    bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("192.168.43.161"), rscverprt);
+    //bool cksd = sdersc.writeDatagram(msg, QHostAddress("192.168.43.30"), rscverprt);
+    bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("192.168.43.161"), rscverprt);
     //bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("127.0.0.1"), rscverprt);
 
 
