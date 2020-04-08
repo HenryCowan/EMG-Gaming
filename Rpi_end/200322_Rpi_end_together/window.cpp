@@ -87,7 +87,7 @@ Window::Window(QWidget *parent): QWidget(parent)
 
 
 // Butterworth highpass
-    const float cutoff_frequency = 50; // Hz
+    const float cutoff_frequency = 2; // Hz
     const float passband_gain = 10; // db
     hp1.setup (samplingrate, cutoff_frequency);
 
