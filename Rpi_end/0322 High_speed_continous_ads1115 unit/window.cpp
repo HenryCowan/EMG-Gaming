@@ -8,14 +8,10 @@
 
 #include "window.h"
 #include "ads1115.h"
-#include "Iir.h"
 #include <Iir.h>
-
 #include <cmath>  // for sine stuff
 #include<stdio.h>
-
 #include<stdlib.h>
-#include <math.h>
 #include <QObject>
 
 
@@ -37,14 +33,8 @@
 
 Window::Window(QWidget *parent): QWidget(parent)
 {
-        //knob = new QwtKnob;
-        //gain = 2;
         count = 0;
-        // set up the gain knob
- 
-
-
-        // set up the initial plot data
+// set up the initial plot data
         for( int index=0; index<plotDataSize; ++index )
         {
             xData1[index] = index;
@@ -53,65 +43,42 @@ Window::Window(QWidget *parent): QWidget(parent)
             yData2[index] = 0;
             xData3[index] = index;
             yData3[index] = 0;
-
-
         }
-
         curve1 = new QwtPlotCurve;
         curve2 = new QwtPlotCurve;
-
         plot1 = new QwtPlot;
         plot2 = new QwtPlot;
         // make a plot curve from the data and attach it to the plot
         curve1->setSamples(xData1, yData1, plotDataSize);
         curve1->attach(plot1);
-
         curve2->setSamples(xData2, yData2, plotDataSize);
         curve2->attach(plot2);
-
         plot1->replot();
         plot1->show();
         plot2->replot();
         plot2->show();
-
-        //// set up the layout - knob above thermometer
-
-
         // plot to the left of knob and thermometer
         hLayout = new QHBoxLayout;
         hLayout->addWidget(plot1);
         hLayout->addWidget(plot2);
         setLayout(hLayout);
-
-
-
-
 // Butterworth highpass
     const float cutoff_frequency = 50; // Hz
     const float passband_gain = 10; // db
     hp1.setup (samplingrate, cutoff_frequency);
-
-
 //create file to log data
     flhp1 = fopen("flhp1ed.dat","wt");
     florigin = fopen("origin.dat","wt");
     flpower = fopen("flpowertimesmooth.dat","wt");
-
 //initialize ads
     ads1 = new ads1115(0x48);
-
-
     connect( ads1, &ads1115::readyread, this, &Window::datapros);
-
     rdtimer = new QTimer;
     rdtimer->setTimerType(Qt::PreciseTimer);
     rdtimer->setInterval(5);//read signal every 2 ms
-
-
     rdtimer->start();
     connect(rdtimer, &QTimer::timeout, ads1, &ads1115::readsig);
     rftimer = new QTimer;
-
     rftimer->setInterval(20);//refresh every ~20ms
     //condition of timer start
     rftimer->start();
@@ -126,7 +93,8 @@ Window::Window(QWidget *parent): QWidget(parent)
     sumpower=0.0;
 */
 }
-
+/* Function to end window
+*===================================*/
 Window::~Window() {
     delete &hp1;
     ads1->endads();
@@ -145,7 +113,8 @@ Window::~Window() {
     fclose(flhp1);
     fclose(flpower);
 }
-
+/* Function to process data
+*===================================*/
 void Window::datapros(float inval)
 {
 
@@ -197,10 +166,7 @@ void Window::datapros(float inval)
 
     }
 */
-
-
     ++count;
-
 }
 
 //this function is used to refresh the window plot every~20ms

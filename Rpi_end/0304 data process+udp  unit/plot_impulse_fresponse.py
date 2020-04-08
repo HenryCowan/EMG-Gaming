@@ -9,7 +9,7 @@ import numpy as np
 def plot_if(figno,name,figtitle):
     plt.figure(figno)
     plt.suptitle(figtitle)
-    fs = 1000
+    fs = 200
     y = np.loadtxt(name);
     plt.subplot(311)
     plt.title("Impulse response")
@@ -38,7 +38,7 @@ plot_if(1,"origin.dat","raw data")
 
 plot_if(2,"flhp1ed.dat","iired data")
 
-plot_if(3,"flpowertimesmooth","time average power")
+plot_if(3,"flpowertimesmooth.dat","time average power")
 
 #plot_if(4,"lp_cheby2.dat","ChebyshevII lowpass")
 

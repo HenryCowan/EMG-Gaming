@@ -129,7 +129,7 @@ Window::~Window() {
 	delete curve2;
 	delete vLayout;
 	delete hLayout;
-	
+}
 
 void Window::timerEvent( QTimerEvent * )
 {
@@ -137,7 +137,6 @@ void Window::timerEvent( QTimerEvent * )
     double inVal1 = pow(10,30.0)*gain * (sin(2*2.0 * M_PI  *count)+sin(10*2.0 * M_PI  *count)+sin(20*2.0 * M_PI  *count)+sin(30*2.0 * M_PI  *count)+sin(40*2.0 * M_PI  *count)+sin(50*2.0 * M_PI  *count)+sin(60*2.0 * M_PI  *count)+sin(70*2.0 * M_PI  *count)+sin(80*2.0 * M_PI  *count)+sin(90*2.0 * M_PI  *count)+sin(100*2.0 * M_PI  *count)+sin(200*2.0 * M_PI  *count));
     // this would be the filtered data
     double inVal2 = hp1.filter(inVal1);
-    inVal2=pow(inVal2,2.0);
 
 
 
@@ -154,7 +153,7 @@ void Window::timerEvent( QTimerEvent * )
     double sumpower = 0.0;
     for (int i=0;i<plotDataSize;i++)
     {
-        sumpower+=yData2[i];
+        sumpower+=pow(yData2[i],2.0);
     }
     double inVal3 = sumpower/double(plotDataSize);
 //	curve2->setSamples(xData2, yData2, plotDataSize);

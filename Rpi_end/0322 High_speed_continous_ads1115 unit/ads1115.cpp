@@ -62,7 +62,6 @@ ads1115::ads1115(uchar addr, QObject *parent)
         }
     //conversion ready sig set
     int high_config = ADS1115_REG_THRES_MSB_1;
-//    high_config=  ((high_config >> 8) & 0x00FF) | ((high_config << 8) & 0xFF00);
     high_config=load_config(high_config);
     rcr=wiringPiI2CWriteReg16(fd,ADS1015_REG_POINTER_HITHRESH, high_config);
 
@@ -78,7 +77,7 @@ ads1115::ads1115(uchar addr, QObject *parent)
         {
             qDebug() << "Failed to set up ads" ;
         }
-
+    // Wait for 1st conversion to complete
 #if 1
     QElapsedTimer t;
     t.start();
@@ -90,7 +89,7 @@ ads1115::ads1115(uchar addr, QObject *parent)
 
 }
 
-/* ADS1115 analogRead function
+/* Function to read from ads
 *===================================*/
 
 
@@ -112,14 +111,12 @@ float ads1115::readsig() {
     return voltage;
 
 }
-
+/* Function to end ads reading
+*===================================*/
 void ads1115::endads()
 {
     int config = ADS1015_REG_CONFIG_MODE_ENDCON;
-//    config = ((config >> 8) & 0x00FF) | ((config << 8) & 0xFF00);
-//    int hight = config / 256;
-//    int low = config % 256;
-//    config = low * 256 + hight;
+
     config=load_config(config);
     int rcr = 0;
     rcr=wiringPiI2CWriteReg16(fd, ADS1015_REG_POINTER_CONFIG, config);

@@ -8,18 +8,12 @@
 
 #include "window.h"
 #include "ads1115.h"
-#include "Iir.h"
 #include <Iir.h>
 #include "GPIOlis.h"
-
 #include <cmath>  // for sine stuff
 #include<stdio.h>
-
 #include<stdlib.h>
-#include <math.h>
 #include <QObject>
-
-
 
  using namespace std;
  //set filter
@@ -38,13 +32,7 @@
 
 Window::Window(QWidget *parent): QWidget(parent)
 {
-
         count = 0;
-
-
-
-
-
         // set up the initial plot data
         for( int index=0; index<plotDataSize; ++index )
         {
@@ -54,38 +42,25 @@ Window::Window(QWidget *parent): QWidget(parent)
             yData2[index] = 0;
             xData3[index] = index;
             yData3[index] = 0;
-
-
         }
 
         curve1 = new QwtPlotCurve;
         curve2 = new QwtPlotCurve;
-        //	curve3 = new QwtPlotCurve;
         plot1 = new QwtPlot;
         plot2 = new QwtPlot;
 // make a plot curve from the data and attach it to the plot
         curve1->setSamples(xData1, yData1, plotDataSize);
         curve1->attach(plot1);
-
         curve2->setSamples(xData2, yData2, plotDataSize);
         curve2->attach(plot2);
-
         plot1->replot();
         plot1->show();
         plot2->replot();
         plot2->show();
-
-
-
         hLayout = new QHBoxLayout;
-
         hLayout->addWidget(plot1);
         hLayout->addWidget(plot2);
         setLayout(hLayout);
-
-
-
-
 // Butterworth highpass
     const float cutoff_frequency = 2; // Hz
     const float passband_gain = 10; // db
@@ -118,18 +93,31 @@ Window::Window(QWidget *parent): QWidget(parent)
     gpiolis1->start();
 
 }
-
+/* Function to end window
+*===================================*/
 Window::~Window() {
     delete &hp1;
 
     gpiolis1->quit();
+	delete plot1;
+	delete plot2;
+	delete curve1;
+	delete curve2;
+	delete hLayout;
     delete gpiolis1;
+	delete rftimer;
+	delete sderprt;
+	
+	
+
+	
 //close the file writing
     fclose(florigin);
     fclose(flhp1);
     fclose(flpower);
 }
-
+/* Function to process data
+*===================================*/
 void Window::datapros(float inval)
 {
     qDebug()<<"new data feed in";
@@ -161,15 +149,15 @@ void Window::datapros(float inval)
     fprintf(flpower,"%e\n",inVal1_3);
 
 //udp sending 1channel test to control game
-
-    QByteArray msg;
-    msg.setNum(inVal1_3);
-    bool cktp;
-    const float outval= msg.toFloat(&cktp);
-    if (!cktp and outval != inVal1_2) qDebug() << "before sending data, data type Conversion failed";
-    qDebug() << "--- Sending";
- 
-    bool cksd = sdersc->writeDatagram(msg, QHostAddress("192.168.1.165"), rscverprt);
+    int nofch=1;
+    float  fVar[nofch];//initialize to-be-sent dataset
+    fVar[0]=inVal3;
+	// transforming float into qbytearray
+    int len_fVar = sizeof(fVar); // 4*4 = 16 bit
+	//send and check
+    //        bool cksd = sdersc.writeDatagram(msg, QHostAddress("192.168.43.30"), rscverprt);
+    //    bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("192.168.43.161"), rscverprt);
+    bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("192.168.1.165"), rscverprt);
     //bool cksd = sdersc.writeDatagram(msg, QHostAddress::LocalHost, 1112);
     if(cksd>0)
       qDebug()<<"successfully send";
@@ -178,15 +166,9 @@ void Window::datapros(float inval)
     //see the fail reason with error()
       qDebug()<<"sending is failed";
       qDebug()<<sdersc->error();
-
     }
-
-
-
-    ++count;
-
+	++count;
 }
-
 //this function is used to refresh the window plot every~20ms
 void Window::plotrefresh()
 {

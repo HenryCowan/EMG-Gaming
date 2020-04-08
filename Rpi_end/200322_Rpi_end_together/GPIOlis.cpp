@@ -35,19 +35,16 @@ ads1=new ads1115(0x48);
 *===================================*/
 void GPIOlis::interrupt(void)
 {
-    //emit ready();
     count ++;
     qDebug()<<"gpio awake, conversion ready";
     gpipinterrupt=0;
     float voltage=ads1->readsig();
     emit readyread(voltage);
-    //qDebug()<<"data read";
     return;
 }
 GPIOlis::~GPIOlis() {
 }
-/* Function to listen to interrupt
-*===================================*/
+
 void GPIOlis::run() {
     if (wiringPiSetup () < 0) {
           qDebug()<< "Unable to setup wiringPi";

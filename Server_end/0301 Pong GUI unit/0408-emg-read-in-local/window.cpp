@@ -8,18 +8,12 @@
 
 #include "window.h"
 #include "ads1115.h"
-#include "Iir.h"
 #include <Iir.h>
 #include "GPIOlis.h"
-
 #include <cmath>  // for sine stuff
 #include<stdio.h>
-
 #include<stdlib.h>
-#include <math.h>
 #include <QObject>
-
-
 
  using namespace std;
  //set filter
@@ -211,9 +205,6 @@ void Window::datapros(float inval,float inval_2)
     }
 
     float inVal2_4 = sumpower/plotDataSize;
-    //qDebug()<<inVal2_4;
-
-
 //save data
     fprintf(florigin2,"%e\n",inVal2);
     fprintf(flhp12,"%e\n",inVal2_2);
@@ -230,15 +221,11 @@ void Window::datapros(float inval,float inval_2)
     //bool cksd = sdersc.writeDatagram(msg, QHostAddress("192.168.43.30"), rscverprt);
     bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("192.168.43.161"), rscverprt);
     //bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("127.0.0.1"), rscverprt);
-
-
-
 }
 
 //this function is used to refresh the window plot every~20ms
 void Window::plotrefresh()
 {
-
 //plot
         curve1->setSamples(xData1, yData1, plotDataSize);
         plot1->replot();

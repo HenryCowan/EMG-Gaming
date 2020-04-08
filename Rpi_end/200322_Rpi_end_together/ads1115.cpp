@@ -63,7 +63,6 @@ ads1115::ads1115(uchar addr, QObject *parent)
         }
     //conversion ready sig set
     int high_config = ADS1115_REG_THRES_MSB_1;
-
     high_config=load_config(high_config);
     rcr=wiringPiI2CWriteReg16(fd,ADS1015_REG_POINTER_HITHRESH, high_config);
 

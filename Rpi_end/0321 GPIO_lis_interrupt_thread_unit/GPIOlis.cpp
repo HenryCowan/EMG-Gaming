@@ -12,7 +12,8 @@
 int gpipinterrupt=0;
 std::mutex cmdmtx;
 using namespace std;
-
+/* Function to be called back and change flag when interrupt
+*===================================*/
 void interrupt2(void)
 {
     
@@ -21,6 +22,8 @@ void interrupt2(void)
     gpipinterrupt =1;
     cmdmtx.unlock();
     }
+/* Function to initialise thread
+*===================================*/
 GPIOlis::GPIOlis(QObject *parent): QThread(parent)
 {
 count=0;
@@ -33,9 +36,12 @@ void GPIOlis::interrupt(void)
     gpipinterrupt=0;
 
 }
+/* Function to be executed when interrupted and flag (gpipinterrupt) is changed
+*===================================*/
 GPIOlis::~GPIOlis() {
 }
-
+/* Function to listen to interrupt
+*===================================*/
 void GPIOlis::run() {
     if (wiringPiSetup () < 0) {
           qDebug()<< "Unable to setup wiringPi";
