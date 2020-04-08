@@ -129,7 +129,7 @@ Window::~Window() {
 	delete curve2;
 	delete vLayout;
 	delete hLayout;
-	
+}
 
 void Window::timerEvent( QTimerEvent * )
 {
