@@ -33,21 +33,16 @@ public slots:
 
 // internal variables for the window class
 private:
-
-
-
 	QwtKnob      *knob;
 	QwtPlot      *plot1;
 	QwtPlotCurve *curve1;
 	QwtPlot      *plot2;
 	QwtPlotCurve *curve2;
-
-
 	// layout elements from Qt itself http://qt-project.org/doc/qt-4.8/classes.html
 	QVBoxLayout  *vLayout;  // vertical layout
 	QHBoxLayout  *hLayout;  // horizontal layout
 
-    static const int plotDataSize = 100;
+    static const int plotDataSize = 10;
 
 	// data arrays for the plot
 	double xData1[plotDataSize];
@@ -60,11 +55,6 @@ private:
 
 	double gain;
 	int count;
-
-
-
-
-//	ADCreader *adcreader;
 };
 
 #endif // WINDOW_H

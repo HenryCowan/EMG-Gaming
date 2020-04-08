@@ -47,13 +47,12 @@ public:
 
     ~Window();
 
-//     void timerEvent( QTimerEvent * );
-//    ads1115 *ads1;
+
     GPIOlis* gpiolis1;
-//    QTimer *rdtimer;
+
     QTimer *rftimer;
 public slots:
-    //void setGain(double gain);
+
     void datapros(float);
     void plotrefresh();
 // internal variables for the window class

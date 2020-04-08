@@ -96,6 +96,11 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete rsverSocket;
+	delete iScene;
+	delete iP1;
+	delete iP2;
+	delete iBall;
+	delete iTimer;
 }
 //Funtion to calculate score
 void MainWindow::refreshScore(int count)

@@ -131,7 +131,15 @@ Window::~Window() {
     delete &hp1;
     ads1->endads();
     delete ads1;
-
+	delete plot1;
+	delete plot2;
+	delete curve1;
+	delete curve2;
+	delete hLayout;
+	delete rdtimer;
+	delete rftimer;
+	delete sdersc;
+	
 //close the file writing
     fclose(florigin);
     fclose(flhp1);

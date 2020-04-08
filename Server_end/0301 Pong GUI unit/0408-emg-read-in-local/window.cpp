@@ -131,9 +131,16 @@ Window::Window(QWidget *parent): QWidget(parent)
 
 Window::~Window() {
     delete &hp1;
-
+	delete rftimer
+	delete plot1;
+	delete plot2;
+	delete curve1;
+	delete curve2;
+	
     gpiolis1->quit();
     delete gpiolis1;
+	delete hLayout
+
 //close the file writing
     fclose(florigin);
     fclose(flhp1);

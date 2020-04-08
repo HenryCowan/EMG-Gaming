@@ -11,12 +11,24 @@
 class QGraphicsItem;
 class QTimer;
 
-class Gameplay;
+
+
 
 namespace Ui {
     class MainWindow;
 }
+/************************************************************\
+ * class: Mainwindow
+ * feature: receive udp sig and move pong gui in according
+ * function:
+*		void refreshScore(int count);  renew score
+*		void Position();               calculate position based on sig
+*		void receive();                receive udp sig
+ * Author: Zonghan Gan
+ *  version        date              des
+ *  v1.0.0    2020-4-8-21-03    Pong gui on udp emg sig
 
+\************************************************************/
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -26,10 +38,9 @@ public:
     explicit MainWindow(int scrnwidth, int scrnheight, QWidget *parent = 0);
     ~MainWindow();
     Ui::MainWindow *ui;
-    Gameplay *iLoop;
     int iScore;
 
-    //graphic item in gameplay
+//graphic item in gameplay
     QGraphicsScene * iScene;
     QGraphicsRectItem *iP2, *iP1;
     QGraphicsEllipseItem *iBall;
@@ -45,15 +56,13 @@ public:
 public slots:
     void refreshScore(int count);
     void Position();
-
     void receive();
 
 
 
 signals:
     void goal(int player);
-//    void P2isleft();
-//    void P2isright();
+
     void rfsh();
 
 
