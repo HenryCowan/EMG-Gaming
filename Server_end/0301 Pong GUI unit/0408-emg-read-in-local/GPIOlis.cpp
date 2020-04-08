@@ -60,7 +60,7 @@ QObject::connect(sdtmr, SIGNAL(timeout()), this, SLOT(sddata()));
 }
 void GPIOlis::sddata(void)
 {
-    emit readyread(data1[count]);
+    emit readyread(data1[count],data2[count]);
 
     this->count ++;
     if (this->count>=61855)

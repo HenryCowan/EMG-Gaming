@@ -24,7 +24,7 @@ protected:
     void run();
 signals:
     void ready();
-    void readyread(float voltage);
+    void readyread(float ch1,float ch2);
 private slots:
     void sddata();
 };

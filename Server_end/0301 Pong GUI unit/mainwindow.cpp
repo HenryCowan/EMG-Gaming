@@ -106,7 +106,7 @@ void MainWindow::refreshScore(int count)
 
 void MainWindow::Position()
 {
-    qDebug()<<timer_measure.elapsed();
+    //qDebug()<<timer_measure.elapsed();
     iBall->setBrush(QBrush(Qt::magenta));
     qreal Xprime = iBall->pos().x() + iBallMotion.x();
     qreal Yprime = iBall->pos().y() + iBallMotion.y();
@@ -186,20 +186,21 @@ void MainWindow::receive()
     while(rsverSocket->hasPendingDatagrams())
     {
 
-	int nofch=1;
+    int nofch=2;
         float  outval[nofch];
         rsverSocket->readDatagram((char*)outval, sizeof(outval));
-        qDebug()<<outval[0];
-        if (outval[0]>0.0003)
+        float delta=outval[0]-outval[1];
+        if (delta>0)qDebug()<<delta;
+        if (delta>0.000015)
         {
 
-            iP2Motion = (iP2Motion == 0 ? -15 : 0);
+            iP2Motion = (iP2Motion == 0 ? -25 : 0);
 
         }
-        else if(outval[0]<0.0002) //if (outval<0)
+        else if(outval[0]<0.00001) //if (outval<0)
         {
 
-           iP2Motion  = (iP2Motion == 0 ? 15 : 0);
+           iP2Motion  = (iP2Motion == 0 ? 25 : 0);
 
         }
     this->rfshcount++;

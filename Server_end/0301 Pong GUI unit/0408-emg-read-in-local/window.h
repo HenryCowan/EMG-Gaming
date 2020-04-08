@@ -47,21 +47,20 @@ public:
 
     ~Window();
 
-//     void timerEvent( QTimerEvent * );
-//    ads1115 *ads1;
+
     GPIOlis* gpiolis1;
-//    QTimer *rdtimer;
+
     QTimer *rftimer;
 public slots:
-    //void setGain(double gain);
-    void datapros(float);
+
+    void datapros(float ch1, float ch2);
     void plotrefresh();
 // internal variables for the window class
 private:
 
 
 
-    //QwtKnob      *knob;
+
     QwtPlot      *plot1;
     QwtPlotCurve *curve1;
     QwtPlot      *plot2;
@@ -82,7 +81,13 @@ private:
     double xData3[plotDataSize];
     double yData3[plotDataSize];
 
+
+    double yData2_1[plotDataSize];
+    double yData2_2[plotDataSize];
+    double yData2_3[plotDataSize];
+
     double sumpower;
+    //double sumpower2;
 //    double gain;
     int count;
 

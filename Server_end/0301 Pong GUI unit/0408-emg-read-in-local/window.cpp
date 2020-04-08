@@ -34,6 +34,9 @@
  FILE *florigin = NULL;
  FILE *flhp1 = NULL;
  FILE *flpower=NULL;
+ FILE *florigin2 = NULL;
+ FILE *flhp12 = NULL;
+ FILE *flpower2=NULL;
  Iir::Butterworth::HighPass<order> hp1;
 
 Window::Window(QWidget *parent): QWidget(parent)
@@ -51,6 +54,11 @@ Window::Window(QWidget *parent): QWidget(parent)
             xData3[index] = index;
             yData3[index] = 0;
 
+
+  
+            yData2_1[index] = 0;
+            yData2_2[index] = 0;
+            yData2_3[index] = 0;
 
         }
 
@@ -95,12 +103,14 @@ Window::Window(QWidget *parent): QWidget(parent)
     florigin = fopen("origin.dat","wt");
     flpower = fopen("flpowertimesmooth.dat","wt");
 
+
+    flhp12 = fopen("flhp1ed2.dat","wt");
+    florigin2 = fopen("origin2.dat","wt");
+    flpower2 = fopen("flpowertimesmooth2.dat","wt");
 //initialize ads
 
     rftimer = new QTimer;
-    //rftimer->setTimerType(Qt::PreciseTimer);
     rftimer->setInterval(20);//refresh every ~20ms
-    //condition of timer start
     rftimer->start();
     connect(rftimer, &QTimer::timeout, this, &Window::plotrefresh);
 //initialize UDP sender the udp has been testified and commented as not essential in this test, yet have fun if you want--Zonghan Gan
@@ -109,10 +119,11 @@ Window::Window(QWidget *parent): QWidget(parent)
     //bind local address and check
     //    sdersc->bind(QHostAddress("192.168.1.174"), sderprt);
     //sdersc->bind(QHostAddress::LocalHost, sderprt);
-    sdersc->bind(QHostAddress("127.0.0.1"), sderprt);
-    //    sdersc->bind(QHostAddress("192.168.43.134"), sderprt);   //ip under android hotspot
+    //sdersc->bind(QHostAddress("127.0.0.1"), sderprt);
+    sdersc->bind(QHostAddress("192.168.43.134"), sderprt);   //ip under android hotspot
     //qDebug()<<"sender sc bind sucess";
     sumpower=0.0;
+
     gpiolis1=new GPIOlis();
     connect( gpiolis1, &GPIOlis::readyread, this, &Window::datapros);
     gpiolis1->start();
@@ -129,9 +140,12 @@ Window::~Window() {
     fclose(florigin);
     fclose(flhp1);
     fclose(flpower);
+    fclose(florigin2);
+    fclose(flhp12);
+    fclose(flpower2);
 }
 
-void Window::datapros(float inval)
+void Window::datapros(float inval,float inval_2)
 {
 
 
@@ -150,11 +164,7 @@ void Window::datapros(float inval)
     memmove( yData2, yData2+1, (plotDataSize-1) * sizeof(float) );
     yData2[plotDataSize-1] = inVal1_2;
 
-    //        sumpower -=yData3[0];
-    //        sumpower += inVal1_3;
-    //        float inVal3 = sumpower/float(plotDataSize);
-
-    //add the new filtered and powered input to the plot
+//add the new filtered and powered input to the plot
     memmove( yData3, yData3+1, (plotDataSize-1) * sizeof(float) );
     yData3[plotDataSize-1] = inVal1_3;
 
@@ -165,27 +175,56 @@ void Window::datapros(float inval)
         sumpower+=yData3[i];
     }
 
-    float inVal3 = sumpower/plotDataSize;
-    qDebug()<<inVal3;
+    float inVal1_4 = sumpower/plotDataSize;
+    //qDebug()<<inVal1_4;
+    qDebug()<<yData1[plotDataSize-1];
+//similar for channel 4
+    float inVal2= inval_2;
+    float inVal2_2 = hp1.filter(inVal2);
+//calculate the time-smoothed power of sig before renewing the filtered data
+    float inVal2_3= pow(inVal2_2,2.0);
 
 
+// add the new original input to the plot
+    memmove( yData2_1, yData2_1+1, (plotDataSize-1) * sizeof(float) );
+    yData2_1[plotDataSize-1] = inVal2;
+
+
+//add the new filtered input to the plot
+    memmove( yData2_2, yData2_2+1, (plotDataSize-1) * sizeof(float) );
+    yData2_2[plotDataSize-1] = inVal2_2;
+
+//add the new filtered and powered input to the plot
+    memmove( yData2_3, yData2_3+1, (plotDataSize-1) * sizeof(float) );
+    yData2_3[plotDataSize-1] = inVal2_3;
+
+
+    sumpower=0.0;
+    for(int i=0;i<plotDataSize;i++)
+    {
+        sumpower+=yData2_3[i];
+    }
+
+    float inVal2_4 = sumpower/plotDataSize;
+    //qDebug()<<inVal2_4;
 
 
 //save data
-    fprintf(florigin,"%e\n",inVal1);
-    fprintf(flhp1,"%e\n",inVal1_2);
-    fprintf(flpower,"%e\n",inVal1_3);
+    fprintf(florigin2,"%e\n",inVal2);
+    fprintf(flhp12,"%e\n",inVal2_2);
+    fprintf(flpower2,"%e\n",inVal2_3);
 
 //udp sending 1channel test to control game
-    int nofch=1;
+    int nofch=2;
     float  fVar[nofch];//initialize to-be-sent dataset
-    fVar[0]=inVal3;
+    fVar[0]=inVal1_4;
+    fVar[1]=inVal2_4;
 // transforming float into qbytearray
     int len_fVar = sizeof(fVar); // 4*4 = 16 bit
 //send and check
-    //        bool cksd = sdersc.writeDatagram(msg, QHostAddress("192.168.43.30"), rscverprt);
+    bool cksd = sdersc.writeDatagram(msg, QHostAddress("192.168.43.30"), rscverprt);
     //    bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("192.168.43.161"), rscverprt);
-    bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("127.0.0.1"), rscverprt);
+    //bool cksd = sdersc->writeDatagram((char*)fVar,len_fVar,QHostAddress("127.0.0.1"), rscverprt);
 
 
 
