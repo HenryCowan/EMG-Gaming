@@ -26,48 +26,25 @@ MainWindow::MainWindow(int scrnwidth, int scrnheight, QWidget *parent) :
 
     ui->setupUi(this);
     this->setFixedSize(wdwidth,wdheight);
-
     iScene = new QGraphicsScene(this);
-
     iP2 = new QGraphicsRectItem(0, 0, 80, 20);
     iP2->setBrush(QBrush(Qt::blue));
     iP1 = new QGraphicsRectItem(0, 0, 80, 20);
     iP1->setBrush(QBrush(Qt::green));
-
     iBall = new QGraphicsEllipseItem(0, 0, 30, 30);
-
     iBall->setBrush(QBrush(Qt::green));
-
-
-
-
-
-
 //measure timer accuracy
     //    QElapsedTimer time_measure;
     //    timer_measure=time_measure;
-
     iScene->setSceneRect(0, 0, wdwidth * 0.95, wdheight * 0.8);
-
-
-
-
     iP1->setPos(wdwidth*0.45, wdheight*0.815);
     iP2->setPos(wdwidth*0.45, -wdheight*0.0375); //iScene->width() * 0.39, iScene->height() * 0.94); //blue
     iBall->setPos(iScene->width() * 0.50, iScene->height() * 0.50);
-
-
     iScene->addItem(iP2);
     iScene->addItem(iP1);
     iScene->addItem(iBall);
-
     ui->boardView->setScene(iScene);
-
     QObject::connect(this, SIGNAL(goal(int)),this, SLOT(refreshScore(int)));
-
-
-
-
 //receive udp sig
     rsverSocket = new QUdpSocket;
 //bind ip address and port for receiving
@@ -156,8 +133,6 @@ void MainWindow::Position()
     {
         iP1Motion = CpuP1Motion();
     }
-
-
     iBall->moveBy(iBallMotion.x(), iBallMotion.y());
     iP2->moveBy(iP2Motion, 0);
     iP1->moveBy(iP1Motion, 0);
@@ -197,17 +172,17 @@ void MainWindow::receive()
         rsverSocket->readDatagram((char*)outval, sizeof(outval));//read and convert udp char as float
         //calculate difference to move paddle2
 		float delta=outval[0]-outval[1];
-        if (delta>0)qDebug()<<delta;
-        if (delta>0.000008)
+        qDebug()<<delta;
+        if (delta>0.3)
         {
 
-            iP2Motion = (iP2Motion == 0 ? -25 : 0);
+            iP2Motion = (iP2Motion == 0 ? -20 : 0);
 
         }
-        else if(outval[0]<0.000004) //if (outval<0)
+        else if(delta<-0.3) //if (outval<0)
         {
 
-           iP2Motion  = (iP2Motion == 0 ? 25 : 0);
+           iP2Motion  = (iP2Motion == 0 ? 20 : 0);
 
         }
     this->rfshcount++;

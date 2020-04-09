@@ -124,8 +124,8 @@ Window::Window(QWidget *parent): QWidget(parent)
 }
 
 Window::~Window() {
-    delete &hp1;
-	delete rftimer
+    	delete &hp1;
+	delete rftimer;
 	delete plot1;
 	delete plot2;
 	delete curve1;
@@ -133,7 +133,7 @@ Window::~Window() {
 	
     gpiolis1->quit();
     delete gpiolis1;
-	delete hLayout
+	delete hLayout;
 
 //close the file writing
     fclose(florigin);
@@ -176,9 +176,9 @@ void Window::datapros(float inval,float inval_2)
 
     float inVal1_4 = sumpower/plotDataSize;
     //qDebug()<<inVal1_4;
-    qDebug()<<yData1[plotDataSize-1];
 //similar for channel 4
     float inVal2= inval_2;
+    //qDebug()<<inVal2;
     float inVal2_2 = hp1.filter(inVal2);
 //calculate the time-smoothed power of sig before renewing the filtered data
     float inVal2_3= pow(inVal2_2,2.0);
@@ -215,6 +215,7 @@ void Window::datapros(float inval,float inval_2)
     float  fVar[nofch];//initialize to-be-sent dataset
     fVar[0]=inVal1_4;
     fVar[1]=inVal2_4;
+    //qDebug()<<(fVar[0]-fVar[1]);
 // transforming float into qbytearray
     int len_fVar = sizeof(fVar); // 4*4 = 16 bit
 //send and check

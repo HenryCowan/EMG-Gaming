@@ -10,7 +10,7 @@
 #include <QFile>
 
 int gpipinterrupt=0;
-std::mutex cmdmtx;
+
 using namespace std;
 
 
@@ -43,13 +43,10 @@ int ReadLine(int datasize,float *data1,QString path)
 GPIOlis::GPIOlis(QObject *parent): QThread(parent)
 {
 this->count=0;
-
-
 QString path1="/home/zonghan-gan/qt/txtrd/Alternating_4Channel_Part1.dat";
 QString path4="/home/zonghan-gan/qt/txtrd/Alternating_4Channel_Part4.dat";
 ReadLine(datasize,this->data1,path1);
 ReadLine(datasize,this->data2,path4);
-
 sdtmr = new QTimer(this);
 sdtmr->setTimerType(Qt::PreciseTimer);
 sdtmr->setInterval(1);

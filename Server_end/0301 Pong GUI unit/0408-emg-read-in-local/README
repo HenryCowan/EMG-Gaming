@@ -1,0 +1,6 @@
+local emg sender to send emg data to android server
+This demo cannot compile using cmake through terminal: the data read in failed
+to succuessfully run, Running through Qt Creator works. However, the data saving failed in Qt creator
+To see the data add qdebug in the code()
+
+
