@@ -12,7 +12,13 @@
 #include <QObject>
 
 const quint16 rsPort = 1112;
-//Function to initiate the window 
+/**
+ * The <code>mainwindow</code> is the code used to a) visualise the
+ * pong game, b) communicate with android host via udp
+
+
+ * @tparam T scalar type for real and imaginary components
+ */
 MainWindow::MainWindow(int scrnwidth, int scrnheight, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
