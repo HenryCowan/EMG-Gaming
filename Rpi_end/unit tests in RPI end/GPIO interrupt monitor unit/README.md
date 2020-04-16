@@ -24,5 +24,6 @@ To run (assuming you are logged into the RPi over ssh and no X-server is running
 
 Also, to run the code, the WiringPi need to be installed in advance. for the library and how to install, see
 http://wiringpi.com/download-and-install/
+adapt the path of WiringPi lib in the .pro file to the WiringPi path on your raspberry pi
 
 
