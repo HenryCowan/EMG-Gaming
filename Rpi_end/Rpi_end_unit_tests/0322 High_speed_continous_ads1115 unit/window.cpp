@@ -96,9 +96,8 @@ Window::Window(QWidget *parent): QWidget(parent)
 /* Function to end window
 *===================================*/
 Window::~Window() {
-    delete &hp1;
-    ads1->endads();
-    delete ads1;
+	ads1->endads();
+	delete ads1;
 	delete plot1;
 	delete plot2;
 	delete curve1;

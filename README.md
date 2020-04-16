@@ -22,21 +22,27 @@ Standard Ag/AgCl electrodes should be place approximately 20cm apart on the chos
 
 Had the hardware components been completed, these signals would be sent through a two stage amplifer, the first a differential stage and the second a gain stage. The output from the amplifier is sent to an ADC (ADS1115) and passed to a Raspberry Pi via the I2C bus protocol for post-processing and game connection. Using the sample EMG data, the amplifification stage was subverted, applying directly to the ADC component.  
 
-## Progress
+## Outcome
 
-- [x] A PCB using the AD7705 has been produced to read an artificial stream of data. This will allow data handling to be explored while fabricating and testing components associated with acquiring EMG data.
+- A PCB using the AD7705 has been produced to read an artificial stream of data. This will allow data handling to be explored while fabricating and testing components associated with acquiring EMG data.
 
-- [x] Through use of the QT toolkit, a realtime plotting script has been tested. It is thought that presenting this to the user as a form of biofeedback could act as an effective means of encouragement. 
-
-- [x] The ADC for the EMG recording has been selected as the ADS1115, and is being implemented into a custom PCB with 4 channel inputs. The specifications of the ADS1115 can be found through the link below:
+- The ADC for the EMG recording has been adapted as the ADS1115, and is being implemented into a custom PCB, 4 ads1115 for 4 input channels of emg. The specifications of the ADS1115 can be found through the link below:
 
 [ADS1115 Spec Sheet](http://www.ti.com/lit/ds/symlink/ads1114.pdf)
 
-- [x] The PCB using the ADS1115 now detects data in realtime from 1 channel using I2C. This single channel data can be used in the game (Pong), transferring data using the UDP and displaying on android devices, and responds to changes in input to the ADC
+- The PCB using the ADS1115 now detects data in realtime from 1 channel using I2C. 
 
-- [ ] Apply prerecorded EMG data to the ADC to control the game
+- RPI end software: Ads1115 driver, detector of GPIO interrupt (GPIOlis), Real-time filter & process & udp sending & plot
+	unit test: Rpi end together: RTEP\Rpi_end\200322_Rpi_end_together
+		   Real-time filter & process & udp sending & plot: RTEP\Rpi_end\Rpi_end_unit_tests\0304 data filter +udp  unit
+		   Detector of GPIO interrupt (GPIOlis): RTEP\Rpi_end\Rpi_end_unit_tests\0321 GPIO_lis_interrupt_thread_unit
+		   Ads1115 driver: RTEP\Rpi_end\Rpi_end_unit_tests\0322 High_speed_continous_ads1115 unit
+		   test video see README in each folder
 
-- [ ] Apply live incoming EMG data to control the game
+- Server end (Android) software: Pong game controlled by emg (2 channel, for single channel see branch single-ch): RTEP\Server_end\0301 Pong GUI, see test video in README in that folder
+	unit tested using pre-recorded emg due to the lab-closure
+		read in and send local emg dat: RTEP\Server_end\0301 Pong GUI\0408-emg-read-in-local
+
 
 ## Social Media
 
@@ -45,3 +51,9 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 [Muscle Power Gaming - Facebook](https://www.facebook.com/EMGamingRPI/)
 
 [Muscle Power Gaming - Twitter](https://twitter.com/emg_pi)
+
+## Contribution
+Zonghan Gan: Software Coding for rpi & server(android)
+Henry Cowan: Hardware, wiki
+Finaly Nelson: UML&class diagram, wiki
+

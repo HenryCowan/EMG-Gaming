@@ -39,7 +39,9 @@ int ReadLine(int datasize,float *data1,QString path)
 
     return 1;
 }
-
+/* Function to initialise thread
+*read in 2 channel from emg dat and import as 2 separate arrays
+*===================================*/
 GPIOlis::GPIOlis(QObject *parent): QThread(parent)
 {
 this->count=0;
@@ -55,6 +57,8 @@ sdtmr->start();
 QObject::connect(sdtmr, SIGNAL(timeout()), this, SLOT(sddata()));
 
 }
+/* Function to send emg data of each channel in 1000hz
+*===================================*/
 void GPIOlis::sddata(void)
 {
     emit readyread(data1[count],data2[count]);

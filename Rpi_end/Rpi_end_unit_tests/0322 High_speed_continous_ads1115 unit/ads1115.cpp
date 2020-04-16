@@ -4,11 +4,7 @@
 #include <QElapsedTimer>
 #include <QDebug>
 #include <QApplication>
-
-
-/* ADS1115 setup:
- *    set up ADS1115 with iic addr.
- *    pinbase is 100
+/* convert config command into binary:
 *===============================================*/
 int load_config(int config)
 {
@@ -17,6 +13,10 @@ int load_config(int config)
     config = low * 256 + hight;
     return config;
 }
+/* ADS1115 setup:
+ *    set up ADS1115 with iic addr.
+ *    pinbase is 100
+*===============================================*/
 ads1115::ads1115(uchar addr, QObject *parent)
     : QObject(parent)
 {

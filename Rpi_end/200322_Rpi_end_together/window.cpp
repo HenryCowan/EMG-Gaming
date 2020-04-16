@@ -96,15 +96,13 @@ Window::Window(QWidget *parent): QWidget(parent)
 /* Function to end window
 *===================================*/
 Window::~Window() {
-    delete &hp1;
-
-    gpiolis1->quit();
+	gpiolis1->quit();
 	delete plot1;
 	delete plot2;
 	delete curve1;
 	delete curve2;
 	delete hLayout;
-    delete gpiolis1;
+	delete gpiolis1;
 	delete rftimer;
 	delete sderprt;
 	

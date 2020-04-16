@@ -1,7 +1,8 @@
 # QwtExample+iir+power time smooth+udp sending
 
 This is a unit test to do the data processing and udp sending of an artificial function sampling at 200hz using the coarse timer of qt
-
+![alt tag](origin.svg)
+![alt tag](flhp1ed.svg)
 ## Making it work
 
 Install the QT5 and Qwt development packages:
@@ -13,10 +14,9 @@ Install the QT5 and Qwt development packages:
 
 To clone this git repository.
 
-To build:
+To build, open the path and run in terminal:
 
 ```
-    cd qwt-example
     qmake
     make
 ```
@@ -24,11 +24,6 @@ To build:
 To run (assuming you are logged into the RPi over ssh and no X-server is running):
 
 ```
-    startx ./QwtExample
-```
-
-or with X running
-
-```
     ./QwtExample
 ```
+##

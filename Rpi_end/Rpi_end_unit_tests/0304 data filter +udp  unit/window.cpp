@@ -2,12 +2,9 @@
 // #include "adcreader.h"
 #include "Iir.h"
 #include <Iir.h>
-
 #include <cmath>  // for sine stuff
 #include<stdio.h>
-
 #include<stdlib.h>
-#include <math.h>
 
  using namespace std;
  //set filter
@@ -115,13 +112,7 @@ Window::Window() : gain(2), count(0)
 }
 
 Window::~Window() {
-	// tells the thread to no longer run its endless loop
-
-
-//	delete adcreader;
-
-    //close the file writing
-    delete sdersc;
+	delete sdersc;
 	delete knob;
 	delete plot1;
 	delete curve1;

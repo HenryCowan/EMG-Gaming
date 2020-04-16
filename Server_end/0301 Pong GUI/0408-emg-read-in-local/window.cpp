@@ -35,10 +35,6 @@
 
 Window::Window(QWidget *parent): QWidget(parent)
 {
-
-
-
-
         for( int index=0; index<plotDataSize; ++index )
         {
             xData1[index] = index;
@@ -73,35 +69,24 @@ Window::Window(QWidget *parent): QWidget(parent)
         plot2->replot();
         plot2->show();
 
-
-
 // plot to the left of knob and thermometer
         hLayout = new QHBoxLayout;
         //hLayout->addLayout(vLayout);
         hLayout->addWidget(plot1);
         hLayout->addWidget(plot2);
         setLayout(hLayout);
-
-
-
-
 // Butterworth highpass
     const float cutoff_frequency = 2; // Hz
     const float passband_gain = 10; // db
     hp1.setup (samplingrate, cutoff_frequency);
-
-
 //create file to log data
     flhp1 = fopen("flhp1ed.dat","wt");
     florigin = fopen("origin.dat","wt");
     flpower = fopen("flpowertimesmooth.dat","wt");
-
-
     flhp12 = fopen("flhp1ed2.dat","wt");
     florigin2 = fopen("origin2.dat","wt");
     flpower2 = fopen("flpowertimesmooth2.dat","wt");
 //initialize ads
-
     rftimer = new QTimer;
     rftimer->setInterval(20);//refresh every ~20ms
     rftimer->start();
@@ -124,15 +109,13 @@ Window::Window(QWidget *parent): QWidget(parent)
 }
 
 Window::~Window() {
-    	delete &hp1;
 	delete rftimer;
 	delete plot1;
 	delete plot2;
 	delete curve1;
 	delete curve2;
-	
-    gpiolis1->quit();
-    delete gpiolis1;
+	gpiolis1->quit();
+	delete gpiolis1;
 	delete hLayout;
 
 //close the file writing

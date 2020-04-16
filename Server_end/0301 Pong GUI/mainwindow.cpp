@@ -71,8 +71,8 @@ MainWindow::MainWindow(int scrnwidth, int scrnheight, QWidget *parent) :
 //Function to eliminate window
 MainWindow::~MainWindow()
 {
-    delete ui;
-    delete rsverSocket;
+	delete ui;
+	delete rsverSocket;
 	delete iScene;
 	delete iP1;
 	delete iP2;
