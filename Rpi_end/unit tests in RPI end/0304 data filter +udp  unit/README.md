@@ -44,3 +44,6 @@ To run (assuming you are logged into the RPi over ssh and no X-server is running
     ./QwtExample
 ```
 
+Also, to run the code, the iir1 filter library from DR Bernd Porr need to be installed in advance. for the library and how to install, see
+https://github.com/berndporr/iir1
+

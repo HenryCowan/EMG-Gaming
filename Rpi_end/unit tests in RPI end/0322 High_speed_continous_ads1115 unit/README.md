@@ -25,6 +25,9 @@ To run (assuming you are logged into the RPi over ssh and no X-server is running
 ```
     ./QwtExample
 ```
+Also, to run the code, the iir1 filter library from DR Bernd Porr need to be installed in advance. for the library and how to install, see
+https://github.com/berndporr/iir1
+
 ## bibliography
 https://blog.csdn.net/weixin_45380951/article/details/103268996
 https://github.com/adafruit/Adafruit_Python_ADS1x15/blob/804728974fcefaafc8b5994be65d22e9c198a8d1/Adafruit_ADS1x15/ADS1x15.py#L297

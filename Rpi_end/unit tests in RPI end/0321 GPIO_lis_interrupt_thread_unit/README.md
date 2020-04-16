@@ -22,4 +22,7 @@ To run (assuming you are logged into the RPi over ssh and no X-server is running
     ./GPIOlis
 ```
 
+Also, to run the code, the WiringPi need to be installed in advance. for the library and how to install, see
+http://wiringpi.com/download-and-install/
+
 
