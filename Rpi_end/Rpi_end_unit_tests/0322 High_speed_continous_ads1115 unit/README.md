@@ -9,6 +9,22 @@ https://www.youtube.com/watch?v=aBgsSWfQyrE
 unit test - conversion ready signal/interrupt
 https://www.youtube.com/watch?v=M4weTT-E-Fw
 
+## Making it work
+
+download files in this folder.
+
+To build, entre the folder and run in terminal:
+
+```
+    qmake
+    make
+```
+
+To run (assuming you are logged into the RPi over ssh and no X-server is running):
+
+```
+    ./QwtExample
+```
 ## bibliography
 https://blog.csdn.net/weixin_45380951/article/details/103268996
 https://github.com/adafruit/Adafruit_Python_ADS1x15/blob/804728974fcefaafc8b5994be65d22e9c198a8d1/Adafruit_ADS1x15/ADS1x15.py#L297
