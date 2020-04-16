@@ -13,4 +13,3 @@ Important features of the design:
 
 **The ADS1115 has the potential to read 4 input channels. However, only two of these channels are utilised per components to maintain a high rate of sampling of each channel.**
 
-**Any static charge build-up from the user is dissipated through ground using upstream diodes to preserve the amplifiers.**
