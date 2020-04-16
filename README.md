@@ -59,30 +59,30 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 ## Contribution
 * **Henry Cowan:**
  
-_-Circuit design_
-_-Schematic draw-up_
-_-PCB design_
-_-PCB construction_
-_-Component selection_
-_-Hardware documentation_
-_-The wiki page_
-_-EMG Signal gitlab repo_
--General github maintenance 
+1. _Circuit design_
+1. _Schematic draw-up_
+1. _PCB design_
+1. _PCB construction_
+1. _Component selection_
+1. _Hardware documentation_
+1. _The wiki page_
+1. _EMG Signal gitlab repo_
+1. _General github maintenance_
 
 * **Zonghan Gan**: 
 
-_-Data Processing_
-_-UDP transmission_
-_-ADC driver_
-_-GPIO interrupt system_
-_-Android Server_
-_-The game!_
+1. _Data Processing_
+1. _UDP transmission_
+1. _ADC driver_
+1. _GPIO interrupt system_
+1. _Android Server_
+1. _The game!_
 
 * **Finlay Nelson**:
 
-_-Software Documentation_
-_-EMG Test Signal Recording_
-_-Social Media Presence_
-_-Github maintenance_
+1. _Software Documentation_
+1. _EMG Test Signal Recording_
+1. _Social Media Presence_
+1. _Github maintenance_
 
 
