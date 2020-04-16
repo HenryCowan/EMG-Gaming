@@ -43,7 +43,7 @@ Had the hardware components been completed, these signals would be sent through 
 - Server end (Android) software
 
 1. Pong game controlled by EMG signal (2 channel, for single channel see branch single-ch), [see here](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end/0301%20Pong%20GUI).	
-1. Unit test of game using [pre-recorded EMG](https://gitlab.com/HenryCowan/rte-emg-signals/-/tree/master), [see here](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end/0301%20Pong%20GUI/0408-emg-read-in-local)
+1. Unit test of game using [pre-recorded EMG](https://gitlab.com/HenryCowan/rte-emg-signals/-/tree/master), [see here](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end/0301%20Pong%20GUI/0408-emg-read-in-local).
 
 **And all of this done synchronously and in real-time! For an example video of each process, see the README in each folder** 
 
