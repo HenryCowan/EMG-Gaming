@@ -59,7 +59,48 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 [Muscle Power Gaming - Twitter](https://twitter.com/emg_pi)
 
 ## Contribution
-- Zonghan Gan: Software Coding for rpi & server(android)
-- Henry Cowan: Hardware, wiki
-- Finaly Nelson: UML&class diagram, wiki
+* **Henry Cowan:**
+ 
+_-Circuit design_
+
+_-Schematic draw-up_
+
+_-PCB design_
+
+_-PCB construction_
+
+_-Component selection_
+
+_-Hardware documentation_
+
+_-The wiki page_
+
+_-EMG Signal gitlab repo_
+
+-General github maintenance 
+
+* **Zonghan Gan**: 
+
+_-Data Processing_
+
+_-UDP transmission_
+
+_-ADC driver_
+
+_-GPIO interrupt system_
+
+_-Android Server_
+
+_-The game!_
+
+* **Finlay Nelson**:
+
+_-Software Documentation_
+
+_-EMG Test Signal Recording_
+
+_-Social Media Presence_
+
+_-Github maintenance_
+
 
