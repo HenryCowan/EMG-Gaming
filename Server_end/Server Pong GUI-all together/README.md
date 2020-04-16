@@ -18,6 +18,7 @@ https://www.youtube.com/watch?v=rDG5sTIDT1k
  either directly send from rpi end, or using the emg-read-in-local in the child path reading in local emg dat and send in 1000hz (RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local)
  
 ## To play with it on pc without compiling qt for android (qt creator is required)
-1. change all ip address to "127.0.0.1" in the RTEP\Server_end\Server Pong GUI-all together\mainwindow.cpp and RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local\window.cpp 
-2. Open the gui and the emg-read-in both in qt creator
-3. first run the gui, then run the emg-read-in
+1. download all the files in Server Pong GUI-all together\ and 0408-emg-read-in-local\, especially the emg dat files
+2. change all ip address to "127.0.0.1" in the "Server Pong GUI-all together\mainwindow.cpp" and "Server Pong GUI-all together\0408-emg-read-in-local\window.cpp"; adapt emg dat file path in "Server Pong GUI-all together\0408-emg-read-in-local\GPIOlis.cpp" to current path
+3. Open the gui and the emg-read-in both in qt creator
+4. first run the gui, then run the emg-read-in
