@@ -9,7 +9,7 @@ https://www.youtube.com/watch?v=0bYEkJsHWhk
 
 download files in this folder.
 
-To build, open the folder and run in terminal:
+To build, entre the folder and run in terminal:
 
 ```
     qmake
