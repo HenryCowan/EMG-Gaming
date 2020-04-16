@@ -31,3 +31,5 @@ To run (assuming you are logged into the RPi over ssh and no X-server is running
 
 Also, to run the code, the iir1 filter library from DR Bernd Porr need to be installed in advance. for the library and how to install, see
 https://github.com/berndporr/iir1
+
+adapt the path of iir1 lib in the .pro file to the iir1 path on your raspberry pi
