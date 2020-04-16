@@ -33,3 +33,9 @@ Also, to run the code, the iir1 filter library from DR Bernd Porr need to be ins
 https://github.com/berndporr/iir1
 
 adapt the path of iir1 lib in the .pro file to the iir1 path on your raspberry pi
+
+the WiringPi lib need to be installed in advance. for the library and how to install, see 
+
+http://wiringpi.com/download-and-install/ 
+
+adapt the path of WiringPi lib in the .pro file to the WiringPi path on your raspberry pi
