@@ -33,15 +33,21 @@ Had the hardware components been completed, these signals would be sent through 
 - The PCB using the ADS1115 now detects data in realtime from 1 channel using I2C. 
 
 - RPI end software: Ads1115 driver, detector of GPIO interrupt (GPIOlis), Real-time filter & process & udp sending & plot
-	unit test: Rpi end together: RTEP\Rpi_end\200322_Rpi_end_together
-		   Real-time filter & process & udp sending & plot: RTEP\Rpi_end\Rpi_end_unit_tests\0304 data filter +udp  unit
-		   Detector of GPIO interrupt (GPIOlis): RTEP\Rpi_end\Rpi_end_unit_tests\0321 GPIO_lis_interrupt_thread_unit
-		   Ads1115 driver: RTEP\Rpi_end\Rpi_end_unit_tests\0322 High_speed_continous_ads1115 unit
-		   test video see README in each folder
+	
+	- unit test: Rpi end together: RTEP\Rpi_end\200322_Rpi_end_together
+		
+		- Real-time filter & process & udp sending & plot: RTEP\Rpi_end\Rpi_end_unit_tests\0304 data filter +udp  unit
+		
+		- Detector of GPIO interrupt (GPIOlis): RTEP\Rpi_end\Rpi_end_unit_tests\0321 GPIO_lis_interrupt_thread_unit
+		
+		- Ads1115 driver: RTEP\Rpi_end\Rpi_end_unit_tests\0322 High_speed_continous_ads1115 unit
+		
+		- test video see README in each folder
 
 - Server end (Android) software: Pong game controlled by emg (2 channel, for single channel see branch single-ch): RTEP\Server_end\0301 Pong GUI, see test video in README in that folder
-	unit tested using pre-recorded emg due to the lab-closure
-		read in and send local emg dat: RTEP\Server_end\0301 Pong GUI\0408-emg-read-in-local
+	
+	- unit tested using pre-recorded emg due to the lab-closure
+		- read in and send local emg dat: RTEP\Server_end\0301 Pong GUI\0408-emg-read-in-local
 
 
 ## Social Media
@@ -53,7 +59,7 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 [Muscle Power Gaming - Twitter](https://twitter.com/emg_pi)
 
 ## Contribution
-Zonghan Gan: Software Coding for rpi & server(android)
-Henry Cowan: Hardware, wiki
-Finaly Nelson: UML&class diagram, wiki
+- Zonghan Gan: Software Coding for rpi & server(android)
+- Henry Cowan: Hardware, wiki
+- Finaly Nelson: UML&class diagram, wiki
 
