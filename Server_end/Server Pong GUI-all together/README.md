@@ -15,4 +15,9 @@ https://www.youtube.com/watch?v=rDG5sTIDT1k
 1. directly run in qt creator
 
 ## sig input from local
-either directly send from rpi end, or using the emg-read-in-local in the child path reading in local emg dat and send in 1000hz (RTEP\Server_end\0301 Pong GUI\0408-emg-read-in-local)
+ either directly send from rpi end, or using the emg-read-in-local in the child path reading in local emg dat and send in 1000hz (RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local)
+ 
+## To play with it on pc without compiling qt for android (qt creator is required)
+1. change all ip address to "127.0.0.1" in the RTEP\Server_end\Server Pong GUI-all together\mainwindow.cpp and RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local\window.cpp 
+2. Open the gui and the emg-read-in both in qt creator
+3. first run the gui, then run the emg-read-in
