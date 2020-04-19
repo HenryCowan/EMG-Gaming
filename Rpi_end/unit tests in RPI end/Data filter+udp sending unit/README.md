@@ -1,11 +1,11 @@
-# QwtExample+iir+power time smooth+udp sending
+# Realtime plotting and UDP sending of a filtered and power, time smoothed EMG signal.
 
 This is a unit test for the data processing and udp sending of an artificial sine function sampling at 200hz using the coarse timer of QT.
 
 Raw data
 ![](origin.png)
 
-High-passed, Fc = 10Hz
+High-passed and smoothed, Fc = 10Hz
 ![](flhp1ed.png)
 
 ## Pre-requisites 
