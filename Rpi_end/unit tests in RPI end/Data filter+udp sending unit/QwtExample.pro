@@ -6,9 +6,9 @@ CONFIG          += qt warn_on debug
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-INCLUDEPATH += /home/zonghan-gan/c/lib/iir1
+//INCLUDEPATH += /home/zonghan-gan/c/lib/iir1
 
-LIBS += /home/zonghan-gan/c/lib/iir1/libiir_static.a
+//LIBS += /home/zonghan-gan/c/lib/iir1/libiir_static.a
 
 
 TARGET = QwtExample
