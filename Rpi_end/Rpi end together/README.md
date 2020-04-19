@@ -1,22 +1,28 @@
-# Unit-tested: rpi end code together
+# Rpi end code together
+This folder contains all of the code for the RaspberryPi and ADS1115 together. This code covers the execution of:
+1. The ADS1115 driver
+1. Interrupt driven sampling
+1. Multiple realtime plotting windows
+1. An IIR filter 
+1. Power and time-smoothing
+1. Internet sending (UDP)
 
+All of this is done synchronously and in real-time! 
 
-This is the work sample for raspberryPi+ads1115 of all rpi end code together, including:
-      ads driver
-      thread monitering gpio interrupt
-      rt plot
-      iir
-      power time smooth
-      internet sending (UDP)
-## unit test video
+## Unit Test Videos
+
 https://www.youtube.com/watch?v=j-3AxjxNN2I
 https://www.youtube.com/watch?v=jThJus-PdIQ
 
 ## Making it work
 
-download files in this folder.
 
-To build, entre the folder and run in terminal:
+```
+      git clone https://github.com/TheUltraSoundGuys/RTEP.git
+      cd RTEP/Rpi_end/Rpi end together
+```
+
+To build, enter the folder and run in terminal:
 
 ```
     qmake
@@ -29,13 +35,12 @@ To run (assuming you are logged into the RPi over ssh and no X-server is running
     ./QwtExample
 ```
 
-Also, to run the code, the iir1 filter library from DR Bernd Porr need to be installed in advance. for the library and how to install, see
-https://github.com/berndporr/iir1
+Pre-requisites 
 
-adapt the path of iir1 lib in the .pro file to the iir1 path on your raspberry pi
+Before running the code an IIR filter library from Dr Bernd Porr must be installed in advance. For the library and how to install, see [here](https://github.com/berndporr/iir1)
 
-the WiringPi lib need to be installed in advance. for the library and how to install, see 
+Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
 
-http://wiringpi.com/download-and-install/ 
+The WiringPi library must also be installed in advance. For the library and how to install, [see](http://wiringpi.com/download-and-install/)
 
-adapt the path of WiringPi lib in the .pro file to the WiringPi path on your raspberry pi
+Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your computer.
