@@ -1,20 +1,14 @@
-# Qt project file - qmake uses his to generate a Makefile
-
-QT       += core gui network
+QT       += core gui
 
 CONFIG          += qt warn_on debug
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-#INCLUDEPATH += /home/zonghan-gan/c/lib/iir1
-#LIBS += /home/zonghan-gan/c/lib/iir1/libiir_static.a
-
-
 TARGET = QwtExample
 
-greaterThan(QT_MAJOR_VERSION, 4): LIBS += -lqwt-qt5 -lm -liir -lrt
-lessThan(QT_MAJOR_VERSION, 5): LIBS += -lqwt -lm -liir  -lrt
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): LIBS += -lqwt-qt5 -lm
+lessThan(QT_MAJOR_VERSION, 5): LIBS += -lqwt -lm
+
 
 HEADERS += window.h
 
