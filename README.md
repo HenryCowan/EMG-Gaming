@@ -56,6 +56,8 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 [Muscle Power Gaming - Twitter](https://twitter.com/emg_pi)
 
+The software documentation can be found [here](https://finlay-nelson.github.io/Test.io/.)
+
 ## COVID Disruption
 
 Due to the current circumstances, sections of the project could not be completed, primarily the hardware component. As can be seen from the Wiki page much effort was given in the hardware design and construction however there was a fault with the final PCB displayed. The amplification step was working and clock and data signals were being read succesfully from a signal generator however the RPi was unable to detect any i2c devices connected. The last few days we had before the university closuer were spent trying to resolve this issue but to no avail. As the group had no access to soldering irons or components and the hardware and software developer were in different cities, this made development of the hardware impossible.
