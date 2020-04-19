@@ -18,3 +18,6 @@ lessThan(QT_MAJOR_VERSION, 5): LIBS += -lqwt -lm
 HEADERS += window.h
 
 SOURCES += main.cpp window.cpp
+
+INCLUDEPATH += ../usr/include/ \
+    ../images/
