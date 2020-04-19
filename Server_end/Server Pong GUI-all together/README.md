@@ -2,7 +2,8 @@
 # Pong game controlled by EMG signal from the server.
 
 ## This code is for 2 EMG channels
-The game's refresh rate is based on a count receiving from local, instead of a timer. Android system is with a polling timer and cause coarse timer errors so this was avoided.
+
+The game's refresh rate is based on a count receiving from local, instead of a timer. The Android system uses a polling timer and can cause coarse timer errors so this was avoided.
 
 ## Check it out the unit test here:
 https://www.youtube.com/watch?v=rDG5sTIDT1k
