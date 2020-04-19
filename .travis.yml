@@ -5,8 +5,7 @@ dist: trusty
 
 before_install:
   - sudo add-apt-repository -y ppa:berndporr/dsp
-  - sudo apt-get update 
-
+  - sudo apt-get update -qq
 script: 
 - cd Rpi_end
 - cd Rpi\ end\ together/
