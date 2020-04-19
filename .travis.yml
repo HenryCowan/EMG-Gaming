@@ -7,7 +7,7 @@ compiler:
 install:
   - sudo apt-get update
 script:
-  - cd /Rpi_end/Rpi end together/
+  - cd Rpi_end/Rpi\ end\ together/
   - qmake
   - make
 
