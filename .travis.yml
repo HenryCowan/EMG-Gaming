@@ -4,7 +4,7 @@ compiler: gcc
 dist: trusty
 
 before_install:
-  - sudo add-apt-repository ppa:berndporr/dsp
+  - sudo add-apt-repository -y ppa:berndporr/dsp
   - sudo apt-get update 
 
 script: 
