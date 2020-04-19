@@ -1,12 +1,12 @@
-# UDP sender sending data using UDP protocol
-a local udp sender sending a float array to the receiver port of the receiver, either a remote ip or local host.
+# UDP sender sending data using UDP protocol.
+Here is an exampe of a local UDP sender sending a float array to the receiver port of the receiver (either a remote IP or a local host). 
 
 
 ## Making it work
 
-download files in this folder.
+Download files in this folder.
 
-To build, entre the folder and run in terminal:
+To build, enter the folder and run in terminal:
 
 ```
     qmake
