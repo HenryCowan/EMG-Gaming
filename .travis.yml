@@ -7,4 +7,5 @@ compiler:
 install:
   - sudo apt-get update
 script:
-  - make -C ./Rpi_end
+  - make -C ./Rpi_end/Ads1115ContinousDriver/
+
