@@ -56,7 +56,7 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 [Muscle Power Gaming - Twitter](https://twitter.com/emg_pi)
 
-The software documentation can be found [here](https://finlay-nelson.github.io/Test.io/.)
+Find our software [documentation!](https://finlay-nelson.github.io/Test.io/.)
 
 ## COVID Disruption
 
