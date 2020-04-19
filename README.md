@@ -35,11 +35,11 @@ Had the hardware components been completed, these signals would be sent through 
 - The PCB using the ADS1115 now detects data in realtime from 1 channel using I2C.
 
 - RPI-end software
-  - [ADS1115 driver] (https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Ads1115ContinousDriver) reads in continuous data. 
-  - Interrupt based sampling achieved using the [GPIOlis command] (https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Rpi%20end%20together).
-  - Working [IIR filter] (https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit).
-  - [Time smoothing] (https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit) of EMG data acheived 
-  - Transmission of filtered and smoothed EMG data via [UDP] (https://github.com/TheUltraSoundGuys/RTEP/blob/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit/window.cpp).
+  - [ADS1115 driver](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Ads1115ContinousDriver) reads in continuous data. 
+  - Interrupt based sampling achieved using the [GPIOlis command](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Rpi%20end%20together).
+  - Working [IIR filter](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit).
+  - [Time smoothing](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit) of EMG data acheived 
+  - Transmission of filtered and smoothed EMG data via [UDP](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit/window.cpp).
   - [Plotting](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit/window.cpp) of the EMG data achieved.
 
 - Server end (Android) software
