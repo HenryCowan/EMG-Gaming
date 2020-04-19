@@ -5,6 +5,9 @@ dist: bionic
 
 before_install:
   - sudo add-apt-repository -y ppa:berndporr/dsp
+install:
+ - sudo apt-get install qtdeclarative5-dev-tools
+ - sudo apt-get install libqwt-qt5-dev
 script: 
 - cd Rpi_end
 - cd Rpi\ end\ together/
