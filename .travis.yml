@@ -11,7 +11,8 @@ install:
  - sudo apt-get install libqwt-qt5-dev
 script: 
 - cd Rpi_end
-- cd Rpi\ end\ together/
+- cd 'unit tests in RPI end'
+- cd 'GPIO interrup monitor unit'
 - qmake
 - make 
 
