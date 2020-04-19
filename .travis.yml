@@ -18,8 +18,7 @@ install:
  
 script: 
 - cd Rpi_end
-- cd 'unit tests in RPI end'
-- cd 'Data filter+udp sending unit'
+- cd 'cd Rpi\ end\ together/'
 - qmake
 - make 
 
