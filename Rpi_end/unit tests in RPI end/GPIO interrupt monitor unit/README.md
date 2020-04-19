@@ -1,15 +1,26 @@
-# unit-tested: Thread listen to GPIO interrupt
+# unit-tested: GPIO interrupt thread
 The GPIOlis is a thread which will listen to the GPIO impulse interrupt.
-In this test demo, the thread would listen to the GPIO 1(PIN 12) and interact with the debug class in main function which would plot "conversion ready"
-Such GPIO monitor is used to detect the conversion_ready of ads1115 in continous mode (8us pulse every conversion in ads continous mode) from Alrt of ads1115 to GPIO of rpi
-## unit test video
+In this test demo, the thread listens to the GPIO 1(PIN 12) from the RPi and interacts with the debug class in the main function which would plot a 'conversion ready' signal.
+The GPIO monitoring is used to detect the 'conversion_ready' of the ADS1115 in continous mode (8us pulse for every conversion in continous mode) from the Alrt pin of ADS1115 to the GPIO of RPi.
+
+## Demonstration Video
 https://www.youtube.com/watch?v=0bYEkJsHWhk
+
+## Pre-requisites 
+
+The WiringPi library must also be installed in advance. For the library and how to install, see [here](http://wiringpi.com/download-and-install/)
+
+Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your computer.
 
 ## Making it work
 
-download files in this folder.
 
-To build, entre the folder and run in terminal:
+```
+      git clone https://github.com/TheUltraSoundGuys/RTEP.git
+      cd RTEP/Rpi_end/unit tests in RPI end/GPIO interrupt monitor unit
+```
+
+To build, enter the folder and run in terminal:
 
 ```
     qmake
@@ -22,8 +33,6 @@ To run (assuming you are logged into the RPi over ssh and no X-server is running
     ./GPIOlis
 ```
 
-Also, to run the code, the WiringPi need to be installed in advance. for the library and how to install, see
-http://wiringpi.com/download-and-install/
-adapt the path of WiringPi lib in the .pro file to the WiringPi path on your raspberry pi
+
 
 
