@@ -10,13 +10,7 @@ before_install:
   - cmake ..
   - make && sudo make install
   - cd ../..
-  
-  - git clone git://git.drogon.net/wiringPi
-  - cd wiringpi
-  - mkdir -p build && cd build
-  - cmake ..
-  - make && sudo make install
-  - cd ../..
+
 
 install:
  - sudo apt-get install qtdeclarative5-dev-tools
