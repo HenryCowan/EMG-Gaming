@@ -1,24 +1,29 @@
-# server(mobile) pong: this is a Pong game using read in processed emg data to controll
+# Pong game controlled by EMG signal from the server.
+
 this demo is for 2 emg channel
 ## this game refresh based on sample counting receiving from local, instead of timer. Android sys is with a polling time and cause coarse timer error.
 
-## unit test video
+## Unit test video
 https://www.youtube.com/watch?v=rDG5sTIDT1k
 
-## compile
+## How to compile
 ### Android
-1. compile QT&QT creator from source intergrated QT for android. Install android SDK from source and set SDK&NDK. Connect the path to SDK&NDK in qt creator setting to form tool chain
-2. connect an android phone to the pc, set the mode "transferring file", turn on developer mode and USP testing
-3. In qt creator on PC, open the .pro file, select Qt for android-release for debug, then click run
-4. approve installation on android phone. In the testing, an ubuntu 18.04 pc and an android 9.0.0 HUAWEI Mate 20 is used
-### On PC
-1. directly run in qt creator
+1. Compile Qt & Qt creator from source intergrated Qt for Android. Install Android SDK from source and set SDK & NDK. Connect the path to SDK & NDK in Qt creator settings to form a tool chain.
+2. Connect an Android phone to the computer, set the mode 'transferring file', turn on developer mode and UDP testing.
+3. In Qt creator on the computer, open the .pro file, select Qt for android-release for debug, then click run.
+4. Approve installation on Android phone. 
 
-## sig input from local
- either directly send from rpi end, or using the emg-read-in-local in the child path reading in local emg dat and send in 1000hz (RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local)
+For the testing, an ubuntu 18.04 pc and an android 9.0.0 HUAWEI Mate 20 were used.
+
+### On PC
+1. Directly run in Qt creator.
+
+## Signal input from local
+ You can either directly send from the  RPi end, or using 'emg-read-in-local' in the child path reading in local EMG data (sent in at 1000Hz) see [here](RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local).
  
-## To play with it on pc without compiling qt for android (qt creator is required)
-1. download all the files in Server Pong GUI-all together\ and 0408-emg-read-in-local\, especially the emg dat files
-2. change all ip address to "127.0.0.1" in the "Server Pong GUI-all together\mainwindow.cpp" and "Server Pong GUI-all together\0408-emg-read-in-local\window.cpp"; adapt emg dat file path in "Server Pong GUI-all together\0408-emg-read-in-local\GPIOlis.cpp" to current path
-3. Open the gui and the emg-read-in both in qt creator
-4. first run the gui, then run the emg-read-in
+## To play the game on pc without compiling Qt for android (Qt creator is required)
+1. Download all the files in 'Server Pong GUI-all together\ and 0408-emg-read-in-local\', including the EMG data files
+2. Change all IP address' to "127.0.0.1" in the 'Server Pong GUI-all together\mainwindow.cpp' and 'Server Pong GUI-all together\0408-emg-read-in-local\window.cpp'; adapt the EMG data file path in 'Server Pong GUI-all together\0408-emg-read-in-local\GPIOlis.cpp' to current path.
+3. Open the GUI and the 'emg-read-in-local' both in Qt creator.
+4. First run the GUI.
+5. Then run the emg-read-in-local. :)
