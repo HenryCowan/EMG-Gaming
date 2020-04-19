@@ -1,12 +1,14 @@
-# UDP sender sending data using UDP protocol
-a udp receiver for server receiving the data and reconstruct into float array. The data is received from a certain receiving port of the machine and the demo is event-based on receiving new data
+
+
+# UDP sender sending data using UDP protocol.
+Here is an exampe of a local UDP sender sending a float array to the receiver port of the receiver (either a remote IP or a local host). 
 
 
 ## Making it work
 
-download files in this folder.
+Download files in this folder.
 
-To build, entre the folder and run in terminal:
+To build, enter the folder and run in terminal:
 
 ```
     qmake
@@ -16,6 +18,5 @@ To build, entre the folder and run in terminal:
 To run (assuming you are logged into the RPi over ssh and no X-server is running):
 
 ```
-    ./UDPrsvertest
+    ./UDPsdertest
 ```
-
