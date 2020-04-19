@@ -9,7 +9,7 @@ before_install:
 install:
  - sudo apt-get install qtdeclarative5-dev-tools
  - sudo apt-get install libqwt-qt5-dev
- - sudo apt-get install wiringpi
+ 
 script: 
 - cd Rpi_end
 - cd 'unit tests in RPI end'
