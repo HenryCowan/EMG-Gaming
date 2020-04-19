@@ -18,7 +18,7 @@ install:
  
 script: 
 - cd Rpi_end
-- cd 'Rpi\ end\ together/'
+- cd Rpi end together
 - qmake
 - make 
 
