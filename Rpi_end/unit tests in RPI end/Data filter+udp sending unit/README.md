@@ -2,11 +2,11 @@
 
 Below is an example of the raw data and filtered/smoothed data which will be send via UDP.
 
+Raw data
+![](origin.png)
 
-![Raw data](origin.png)
-
-
-![High-passed and smoothed, Fc = 10Hz, smoothed over 5 samples](flhp1ed.png)
+High-passed and smoothed, Fc = 10Hz, smoothed over 5 samples
+![](flhp1ed.png)
 
 ## Pre-requisites 
 
