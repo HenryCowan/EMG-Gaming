@@ -1,14 +1,16 @@
 
 language: cpp
-os: linux
-dist: bionic
-compiler:
-  - gcc
-install:
-  - sudo apt-get update
-script:
-  - cd Rpi_end/Rpi\ end\ together/
-  - qmake
-  - make
+compiler: gcc
+dist: trusty
+
+before_install:
+  - sudo add-apt-repository ppa:berndporr/dsp
+  - sudo apt-get update 
+
+script: 
+- cd Rpi_end
+- cd Rpi\ end\ together/
+- qmake
+- make 
 
 
