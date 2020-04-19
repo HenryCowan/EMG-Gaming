@@ -1,0 +1,10 @@
+
+language: cpp
+os: linux
+dist: bionic
+compiler:
+  - gcc
+install:
+  - sudo apt-get update
+script:
+  - make -C ./Rpi_end
