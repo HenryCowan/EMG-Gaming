@@ -1,5 +1,5 @@
 
-## Muscle Power Gaming: Get Flexing! :joystick:
+# Muscle Power Gaming: Get Flexing! :joystick:
 
 
 A repository to demomstrate the use of a Raspberry Pi in controlling a video game with realtime EMG signals. This is part of a course hosted by the University of Glasgow in Real Time Embedded Programming.
@@ -66,16 +66,15 @@ The solution to this frustrating issue was to provide rigorous unit tests with f
 
 If the issue of the I2C address detection was solved with the final PCB, the board would have been working in full. Hopefully from these unit test videos it can be seen just how frustratingly close we were!
 
-## Contribution
+## Primary Contributions
 
 - Henry Cowan
   - Circuit Design
   - Schematic draw-up
-  - PCB Design
-  - PCB Construction
+  - PCB Design & Construction
   - Component Selection
   - Hardware Documentation
-  - Wiki Page
+  - Wiki Page (Hardware)
   - EMG Signal Gitlab Repo
   - General Github Maintenance
 
@@ -92,5 +91,6 @@ If the issue of the I2C address detection was solved with the final PCB, the boa
   - EMG Test Signal Recording
   - Social Media Presence
   - Github Maintenance
+  - Wiki Page (Software)
 
 
