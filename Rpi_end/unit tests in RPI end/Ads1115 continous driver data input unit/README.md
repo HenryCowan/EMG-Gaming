@@ -4,7 +4,7 @@
 
 ## High speed continuous driver for the ADS1115 :runner:
 
-To control the ADS1115 to read at in at a rate of greater than 400 samples per second, the ADC driver should control ADS1115 in continuous mode. We could not find a pre-existing ADS1115 continous driver in C++, so we wrote this QT/C++ one.
+To control the ADS1115 to read at in at a rate of greater than 400 samples per second, the ADC driver should operate the ADS1115 in continuous mode. We could not find a pre-existing ADS1115 continous driver in C++, so we wrote this QT/C++ one.
 
 To see how we've tested this driver, check out this [code](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Ads1115%20continous%20driver%20data%20input%20unit) and the following demonstration videos!
 
