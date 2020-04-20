@@ -1,5 +1,8 @@
-# Unit-test demo: this is a demo to read in emg data, high pass filtered (fc=2hz), powered, time smooth (5 sample) and then send through udp to server(android)
-this demo is for 2 emg channel
-## Compile
-- when compile using cmake command in terminal, reading in from dat often fail
-- Recommand to run in QT creator. Yet in qt creator, cannot export new dat file with fopen
+## Unit-test demonstration: 
+**This is a demonstration of the read-in of emg data, that is high-pass filtered (Fc = 2Hz), power-time-smoothed (5 samples) and sent through UDP to an Android server**
+
+*This demonstration is for a 2 channel input
+
+## Compilation
+- When compiling using the cmake command from the terminal, the reading in from dat files often fails
+- It is recommended to run in QT creator, although in QT creator new dat files cannot be exported with the fopen command
