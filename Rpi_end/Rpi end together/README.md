@@ -31,7 +31,7 @@ Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your com
 
 ```
     git clone https://github.com/TheUltraSoundGuys/RTEP.git
-    cd RTEP/Rpi_end/Rpi end together
+    cd RTEP/Rpi_end/"Rpi end together"
     qmake
     make
 ```
