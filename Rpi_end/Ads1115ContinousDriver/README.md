@@ -3,7 +3,7 @@
 To control the ADS1115 to read at >400Hz, the ads driver should control ADS1115 in continous mode
 We could not find a pre-existing ADS1115 continous driver in C++, so we wrote this QT/C++ one.
 
-To see how we've tested this driver, check out this code [here](RTEP\Rpi_end\Rpi_end_unit_tests\0322 High_speed_continous_ads1115) and the following demonstration videos:
+To see how we've tested this driver, check out this [code](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Ads1115%20continous%20driver%20data%20input%20unit) and the following demonstration videos!
 
 * This video shows the unit test of the ADS1115 continuous driver:
   * [Continuous Driver](https://www.youtube.com/watch?v=aBgsSWfQyrE)
