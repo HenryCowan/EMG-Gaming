@@ -14,9 +14,9 @@ All of this is done synchronously and in real-time!
 ## Unit Test Videos :movie_camera:
 See the links below for videos of the driver in action.
 
-Part 1: [Test 1](https://www.youtube.com/watch?v=j-3AxjxNN2I)
+Part 1: https://www.youtube.com/watch?v=j-3AxjxNN2I
 
-Part 2: [Test 2](https://www.youtube.com/watch?v=jThJus-PdIQ)
+Part 2: https://www.youtube.com/watch?v=jThJus-PdIQ
 
 ---
 
@@ -37,7 +37,7 @@ Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your com
 
 ```
     git clone https://github.com/TheUltraSoundGuys/RTEP.git
-    cd RTEP/Rpi_end/"Rpi end together"
+    cd RTEP/Rpi_end/'Rpi end together'
     qmake
     make
 ```
