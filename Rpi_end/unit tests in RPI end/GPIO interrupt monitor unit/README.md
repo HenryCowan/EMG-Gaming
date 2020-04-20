@@ -1,5 +1,5 @@
 ## Unit-tested: GPIO interrupt thread
-The GPIOlis is a thread which will listen for a the GPIO interrupt pulse. In this test demo, the thread listens to the GPIO 1(PIN 12) from the RPi and interacts with the debug class in the main function which outputs a 'conversion ready' signal.
+The GPIOlis is a thread which will listen for a the GPIO interrupt pulse, which tell the sys a new A-D conversion is ready. In this test demo, the thread listens to the GPIO 1(PIN 12) from the RPi and interacts with the debug class in the main function which outputs a 'conversion ready' signal.
 The GPIO monitoring is used to detect the 'conversion_ready' signal of the ADS1115 in continous mode (8us pulse for every conversion in continous mode) from the Alrt pin of the ADS1115 to the GPIO of the RPi.
 
 ---
