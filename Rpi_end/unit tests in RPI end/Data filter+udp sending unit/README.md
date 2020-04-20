@@ -1,6 +1,6 @@
-## Realtime plotting/UDP-sending of filtered and power-time-smoothed EMG signals.
+## Realtime plotting and sending (UDP) of filtered/PTS EMG signals.
 
-The first image displays the raw data, while the second shows the high-pass filtered and smoothed data (Fc = 10Hz; smoothed over 5 samples) to be sent via UDP
+The first image displays the raw data, while the second shows the high-pass filtered and power-time-smoothed EMG data (Fc = 10Hz; smoothed over 5 samples) to be sent via UDP.
 
 ![](origin.png)
 
