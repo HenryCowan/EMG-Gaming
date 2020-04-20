@@ -2,7 +2,7 @@
 
 
 
-## High speed continuous driver for the ADS1115 
+## High speed continuous driver for the ADS1115 :runner:
 
 To control the ADS1115 to read at in at a rate of greater than 400 samples per second, the ADC driver should control ADS1115 in continuous mode. We could not find a pre-existing ADS1115 continous driver in C++, so we wrote this QT/C++ one.
 
@@ -31,7 +31,7 @@ Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
 
 ```
     git clone https://github.com/TheUltraSoundGuys/RTEP.git
-    cd "Rpi_end\unit tests in RPI end\Ads1115 continous driver data input unit\"
+    cd Rpi_end\'unit tests in RPI end' \'Ads1115 continous driver data input unit' \
     qmake
     make
 ```
