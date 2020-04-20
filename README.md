@@ -46,17 +46,17 @@ Had the hardware components been completed, these signals would be sent through 
 - [ ] Work to the 4 channel PCB could not be completed due to disruption caused by the COVID-19 outbreak. Follow the attached link to see our progress with the hardware elements
   - [Hardware](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Hardware)
 
-- RPI-end software
-  - ADS1115 driver reads in continuous data [:ballot_box_with_check:](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Ads1115ContinousDriver)
-  - Interrupt based sampling achieved using the [GPIOlis command](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Rpi%20end%20together).
-  - Working [IIR filter](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit).
-  - [Time smoothing](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit) of EMG data acheived 
-  - Transmission of filtered and smoothed EMG data via [UDP](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit/window.cpp).
-  - [Plotting](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit/window.cpp) of the EMG data achieved.
+- [RPI-end software](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end)
+  - [x] ADS1115 driver reads in continuous data. [:link:](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Ads1115ContinousDriver)
+  - [x] Interrupt based sampling using the GPIOlis command. [:link:](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/Rpi%20end%20together)
+  - [x] IIR filter. [:link:](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit).
+  - [x] Time smoothing of EMG data. [:link:](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit)
+  - [x] Transmission of filtered and smoothed EMG data via UDP. [:link:](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit/window.cpp).
+  - [x] Plotting of the EMG data. [:link:](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Rpi_end/unit%20tests%20in%20RPI%20end/Data%20filter%2Budp%20sending%20unit/window.cpp)
 
-- Server end (Android) software
+- [Server end (Android) software](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end)
 
-  - [Pong game](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end/Server%20Pong%20GUI-all%20together) controlled by EMG signal (2 channel, for single channel see branch single-ch).
+  - [x] Pong game controlled by EMG signal (2 channel, for single channel see branch **single-ch**). [:link:](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end/Server%20Pong%20GUI-all%20together)
 
 **And all of this done synchronously and in real-time! For an example video of each process, see the README in each folder** 
 
