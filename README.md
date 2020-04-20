@@ -1,5 +1,5 @@
 
-# Muscle Power Gaming: Get Flexing! :video_game:
+# ![](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Images/Logo2.png)Muscle Power Gaming: Get Flexing! :video_game:
 
 This repository demomstrates the use of a Raspberry Pi in controlling a video game using realtime EMG signals. This is part of a course hosted by the University of Glasgow in Real Time Embedded Programming.
 
