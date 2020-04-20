@@ -1,15 +1,15 @@
 
 # ![](https://github.com/TheUltraSoundGuys/RTEP/blob/master/Images/Logo2.png)Muscle Power Gaming: Get Flexing!
 
-This repository demomstrates the use of a Raspberry Pi in controlling a video game using realtime EMG signals. This is part of a course hosted by the University of Glasgow in Real Time Embedded Programming.
+This repository demomstrates the use of a Raspberry Pi with EMG detection cicuitory to control a video game in real-time using signals from the muscles. This is a project for the Real-time Embedded Systems cource at the University of Glasgow.
 
-The repository describes how to measure EMG signals from the user's bicep and/or ticep muscles, and how these are then used in turn to control the movement of a paddle in the classic game Pong :ping_pong: (the principles being completely transferrable to other relatively rudimentary games). 
+The repository describes how to measure EMG signals from the user's muscles - we have given the example of biceps and/or triceps however this technology is apllicable to any muscles capable of contraction. The use of these signals to control the movement of a paddle in the classic game Pong is then demostrated and presented(the principles being completely transferrable to other relatively rudimentary games). :ping_pong:
 
 ---
 
 ## Premise
 
-The simplest video games have very limited inputs. For some this is simply left/right, while for others it may be up/down/left/right. This makes it relatively straightforward to hack these inputs to be controlled by EMG signals (one muscle controls left, another right, etc). With a 4 channel system, we hope to be able to accomodate single-player versions of games requiring 4 input options, or multiplayer versions of games requiring only 2 (a safe outlet for any pent up testosterone!).
+The simplest video games have very limited inputs. For some, this is simply left/right, while for others it may be up/down/left/right. This makes it relatively straightforward to hack these inputs to be controlled by EMG signals (one muscle controls left, another right, etc). With a 4 channel system, we hope to be able to accomodate single-player versions of games requiring 4 input options, or multiplayer versions of games requiring only 2 (providing a safe outlet for any pent up testosterone!).
 
 The primary use of this system is to increase the level of submersion the player feels within the gaming environment, providing a new challenge, and adding a new dimension to the gaming experience. The system also has potential application in the field of rehabilitation, encouraging persistence with otherwise unpleasant rehabilitation regimes.
 
@@ -17,7 +17,7 @@ The primary use of this system is to increase the level of submersion the player
 
 ## Social Media
 
-Below are the links to our Facebook and Twitter pages where you can keep up to date with all our latest and most exciting developments. You can also find our code documentation so you can get to grips with our work yourselves!
+Below are the links to our Facebook and Twitter pages where you can keep up to date with all our latest and most exciting developments. You can also find our code documentation, aided with the Wiki page, so that you can get to grips with our work yourselves!
 
 [Muscle Power Gaming - Facebook](https://www.facebook.com/EMGamingRPI/)
 
@@ -31,15 +31,13 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 ## Outcomes
 
-- [x] A PCB using the AD7705 has been produced to read an artificial stream of data. This will allow data handling to be explored while fabricating and testing components associated with acquiring EMG data.
-
-- [x] The ADC for the EMG recording has been selected as the ADS1115, and is being implemented into a custom PCB with 4 channel inputs. The specifications of the ADS1115 can be found through the link below:
+- [x] The ADC for the EMG recording has been selected as the ADS1115, and was implemented into a custom PCB with 4 channel inputs. The specifications of the ADS1115 can be found through the link below:
 
 [ADS1115 Spec Sheet](http://www.ti.com/lit/ds/symlink/ads1114.pdf)
 
-- [x] Through use of the QT toolkit, a realtime plotting script has been tested. It is thought that presenting this to the user as a form of biofeedback could act as an effective means of encouragement. 
+- [x] Through use of the Qt toolkit, a realtime plotting script has been tested. It is thought that presenting this to the user as a form of biofeedback could act as an effective means of encouragement. 
 
-- [x] The PCB using the ADS1115 now detects data in realtime from 1 channel using I2C.
+- [x] A custom matrix board using the ADS1115 now detects data in realtime from 1 channel using I2C.
 
 - [ ] Work to the 4 channel PCB could not be completed due to disruption caused by the COVID-19 outbreak. Follow the attached link to see our progress with the hardware elements
   - [Hardware](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Hardware)
