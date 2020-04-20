@@ -1,6 +1,6 @@
 # Hardware Design :hammer_and_wrench:
 
-## Important features of the design:
+## Important features of the design
 
 ---
 
@@ -11,7 +11,6 @@
 * A voltage divider and buffering amplifer (TL071) are used to generate the reference voltage.
 * Standard decoupling capacitors are used for ADC protection, and clamping diodes are placed at the EMG inputs to short any large static voltages and protect the amplifiers. 
 
----
 
 **The ADS1115 has the potential to read 4 input channels. However, only one of these channels are utilised per device to maintain a high rate of sampling within each channel.**
 
