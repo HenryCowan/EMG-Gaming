@@ -13,12 +13,11 @@ The simplest video games have very limited inputs. For some, this is simply left
 
 The primary use of this system is to increase the level of submersion the player feels within the gaming environment, providing a new challenge, and adding a new dimension to the gaming experience. The system also has potential application in the field of rehabilitation, encouraging persistence with otherwise unpleasant rehabilitation regimes.
 
-### Software
 #### Rpi-end
 The RaspberryPi end (local) software, includes the adc driver, GPIO interrupt monitor thread, data filter & processing, and UDP sending.
 #### Server-end
 The Android (server) software, is created using QT for android. This software receives the UDP data and uses it to control a Pong GUI game.
-### Hardware
+#### Hardware
 
 ---
 
