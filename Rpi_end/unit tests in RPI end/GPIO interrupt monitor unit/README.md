@@ -11,7 +11,7 @@ The GPIO monitoring is used to detect the 'conversion_ready' signal of the ADS11
 
 ## Pre-requisites 
 
-The WiringPi library must also be installed in advance. For the library and how to install, see [here](http://wiringpi.com/download-and-install/)
+The WiringPi library must also be installed in advance. For the library and how to install, see [here](http://wiringpi.com/download-and-install/).
 
 Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your computer.
 
