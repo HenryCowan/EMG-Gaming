@@ -1,7 +1,6 @@
 ## High speed continuous driver for the ADS1115 :runner:
 
-To control the ADS1115 to read at >400Hz, the ads driver should control ADS1115 in continuous mode
-We could not find a pre-existing ADS1115 continous driver in C++, so we wrote this QT/C++ one.
+To control the ADS1115 to read at in at a rate of greater than 400 samples per second, the ADC driver should control ADS1115 in continuous mode. We could not find a pre-existing ADS1115 continous driver in C++, so we wrote this QT/C++ one.
 
 To see how we've tested this driver, check out this [code](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end/unit%20tests%20in%20RPI%20end/Ads1115%20continous%20driver%20data%20input%20unit) and the following demonstration videos!
 
@@ -15,7 +14,9 @@ To see how we've tested this driver, check out this [code](https://github.com/Th
 
 ## References
 
-These two sites were used to aid our driver construction. For those who can read Mandarin, [this](https://blog.csdn.net/weixin_45380951/article/details/103268996) is the site for you!
+These two sites were used to aid our driver construction. 
+
+For those who can read Mandarin, [this](https://blog.csdn.net/weixin_45380951/article/details/103268996) is the site for you!
 
 For those who are more comfortable speaking English - check out the [Adafruit python library](https://github.com/adafruit/Adafruit_Python_ADS1x15/blob/804728974fcefaafc8b5994be65d22e9c198a8d1/Adafruit_ADS1x15/ADS1x15.py#L297).
 
