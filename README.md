@@ -19,7 +19,7 @@ The RaspberryPi end (local) software, includes the adc driver, GPIO interrupt mo
 The Android (server) software, is created using QT for android. This software receives the UDP data and uses it to control a Pong GUI game.
 
 #### Hardware
-The hardware cosists of a differential amplification stage, ahigh-pass filter and a digitisation. 
+The hardware cosists of a differential amplification stage, a high-pass filter and a digitisation. 
 A detailed description of the hardware can be found in the [hardware readme](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Hardware).
 
 See the project's [Wiki](https://github.com/TheUltraSoundGuys/RTEP/wiki) for more information regarding the software and hardware.
@@ -50,7 +50,7 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 - [x] A custom matrix board using the ADS1115 now detects data in realtime from 1 channel using I2C.
 
-- [ ] Work to the 4 channel PCB could not be completed due to disruption caused by the COVID-19 outbreak. Follow the attached link to see our progress with the hardware and a detailed description of the effect that this had virus on the project.
+- [ ] Work to the 4 channel PCB could not be completed due to disruption caused by the COVID-19 outbreak. Follow the attached link to see our progress with the hardware and a detailed description of the effect that this had on the project.
   - [Hardware](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Hardware)
 
 - [RPI-end software](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end)
@@ -94,7 +94,7 @@ Standard Ag/AgCl electrodes should be place approximately 20cm apart on the chos
 - Zonghan Gan
   - Data Processing
   - UDP Transmission
-  - ADC driver
+  - ADC Driver
   - GPIO Interrupt System
   - Android Server
   - The Game
