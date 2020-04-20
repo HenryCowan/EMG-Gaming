@@ -14,6 +14,35 @@ To see how we've tested this driver, check out this [code](https://github.com/Th
 * This video shows the driver working with interrupt based sampling:
   * [Interrupt-based sampling](https://www.youtube.com/watch?v=M4weTT-E-Fw)
   
+  
+
+## Pre-requisites 
+
+Before running the code, an IIR filter library from Dr Bernd Porr must be installed in advance. For the library and how to install, see [here](https://github.com/berndporr/iir1).
+
+Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
+
+
+
+---
+
+## Action :clapper:
+
+
+```
+    git clone https://github.com/TheUltraSoundGuys/RTEP.git
+    cd RTEP/Rpi_end/'Rpi end together'
+    qmake
+    make
+```
+
+To run (assuming you are logged into the RPi over ssh and no X-server is running):
+
+```
+    ./QwtExample
+```
+
+
 ---
 
 ## References
