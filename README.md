@@ -29,6 +29,16 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 ---
 
+## Project structure
+
+---
+### Software
+#### Rpi_end
+The RaspberryPi end (local) software, including adc driver, GPIO interrupt monitor thread, data filter & processing, UDP sending
+#### Server_end
+The Android (server) software, created using QT for android. This software receive the UDP data and use it to control a Pong Gui game
+### Hardware
+
 ## Outcomes
 
 - [x] The ADC for the EMG recording has been selected as the ADS1115, and was implemented into a custom PCB with 4 channel inputs. The specifications of the ADS1115 can be found through the link below:
