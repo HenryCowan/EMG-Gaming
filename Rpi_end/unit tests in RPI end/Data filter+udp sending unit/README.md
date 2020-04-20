@@ -1,4 +1,4 @@
-## Realtime plotting and sending (UDP) of filtered/PTS EMG signals.
+## Realtime plotting and sending (UDP) of filtered/PTS EMG signals :chart_with_upwards_trend:
 
 The first image displays the raw data, while the second shows the high-pass filtered and power-time-smoothed EMG data (Fc = 10Hz; smoothed over 5 samples) to be sent via UDP.
 
