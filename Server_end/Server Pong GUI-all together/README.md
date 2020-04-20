@@ -3,7 +3,7 @@
 
 **This code is for the use of 2 EMG channels**
 
-The games refresh rate is based on a local counter rather than a timer. This is to avoid coarse timer errors imposed as a result of the Android systems polling timer.
+The games refresh rate is based on a counter of signal rather than a timer. This is to avoid coarse timer errors imposed as a result of the Android systems polling time.
 
 ---
 
