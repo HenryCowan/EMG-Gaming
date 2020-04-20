@@ -25,7 +25,7 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 [Software documentation](https://finlay-nelson.github.io/Test.io/.)
 
-[Wiki](https://github.com/TheUltraSoundGuys/RTEP.wiki.git)
+[Wiki](https://github.com/TheUltraSoundGuys/RTEP/wiki)
 
 ---
 
