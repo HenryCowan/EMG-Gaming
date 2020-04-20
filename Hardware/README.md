@@ -10,8 +10,7 @@ As can be seen from the Wiki page, much time and effort was dedicated to hardwar
 
 The solution to this involved rigorous unit testing with firstly a matrix board that we had developed earlier in the project. This board employed an ADS1115 chip attached with floating inputs and an output connected to the RPi. From this board we could present real-time interrupt based sampling from interaction with one of the GPIO outputs of the RPi. The inputs of the board were connected to a signal generator, presenting realtime filtering, time-smoothing and interrupt based sampling, as well as internet transmission via UDP. We also managed to achieve signal integration with the game as shown in... by using pre-recorded EMG signals recorded before lab closure.
 
-
-The amplification step, clock and data signals were all succesful using a signal generator, so if the issue of I2C address detection was solved within the final PCB, the board would operate as required. Hopefully from the supplied unit test videos it can be seen how close to the solution this work is.
+The amplification step, clock and data signals were all proved succesful using a signal generator, so if the issue of I2C address detection was solved for the final PCB, the board would operate as required. Hopefully from the provided unit test videos it can be seen just how close we were to total hardware-software integration. 
 
 
 Important features of the design:
@@ -27,5 +26,5 @@ Important features of the design:
 
 ---
 
-**The ADS1115 has the potential to read 4 input channels. However, only two of these channels are utilised per components to maintain a high rate of sampling within each channel.**
+**The ADS1115 has the potential to read 4 input channels. However, only one of these channels are utilised per device to maintain a high rate of sampling within each channel.**
 
