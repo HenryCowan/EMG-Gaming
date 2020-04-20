@@ -5,8 +5,12 @@
 
 The games refresh rate is based on a local counter rather than a timer. This is to avoid coarse timer errors imposed as a result of the Android systems polling timer.
 
+---
+
 ### Check it out the video below:
 [Unit test](https://www.youtube.com/watch?v=rDG5sTIDT1k)
+
+---
 
 ## Compilation
 
@@ -21,12 +25,19 @@ The games refresh rate is based on a local counter rather than a timer. This is 
 ### PC
 1. Directly run in Qt creator.
 
+---
+
 ## Local signal input
  You can either directly send from the  RPi end, or using 'emg-read-in-local' in the child path reading in local EMG data (sent in at 1000Hz). See [here](RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local).
  
+ ---
+ 
 ## To play the game on pc without compiling Qt for android (Qt creator is required)
-1. Download all the files in 'Server Pong GUI-all together\ and 0408-emg-read-in-local\', including the EMG data files
-2. Change all IP address' to "127.0.0.1" in the 'Server Pong GUI-all together\mainwindow.cpp' and 'Server Pong GUI-all together\0408-emg-read-in-local\window.cpp'; adapt the EMG data file path in 'Server Pong GUI-all together\0408-emg-read-in-local\GPIOlis.cpp' to current path.
-3. Open the GUI and the 'emg-read-in-local' both in Qt creator.
+1. Download all the files in **"Server Pong GUI-all together"** and **"Server Pong GUI-all together\0408-emg-read-in-local\"**, including the EMG data files
+2. Change all IP addresses to "127.0.0.1" in:
+   1. **"Server Pong GUI-all together\mainwindow.cpp"**
+   1. **"Server Pong GUI-all together\0408-emg-read-in-local\window.cpp"** 
+3. Adapt the EMG data file path in **"Server Pong GUI-all together\0408-emg-read-in-local\GPIOlis.cpp"** to current path.
+3. Open the GUI and the **'emg-read-in-local'**, both in Qt creator.
 4. First run the GUI.
-5. Then run the emg-read-in-local. :)
+5. Then run the emg-read-in-local. :smiley:
