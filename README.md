@@ -17,7 +17,12 @@ The primary use of this system is to increase the level of submersion the player
 The RaspberryPi end (local) software, includes the adc driver, GPIO interrupt monitor thread, data filter & processing, and UDP sending.
 #### Server-end
 The Android (server) software, is created using QT for android. This software receives the UDP data and uses it to control a Pong GUI game.
+
 #### Hardware
+The hardware cosists of a differential amplification stage, ahigh-pass filter and a digitisation. 
+A detailed description of the hardware can be found in the [hardware readme](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Hardware).
+
+See the project's [Wiki](https://github.com/TheUltraSoundGuys/RTEP/wiki) for more information regarding the software and hardware.
 
 ---
 
