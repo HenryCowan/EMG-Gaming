@@ -28,7 +28,7 @@ The games refresh rate is based on a local counter rather than a timer. This is 
 ---
 
 ## Local signal input
- You can either directly send from the  RPi end, or using 'emg-read-in-local' in the child path reading in local EMG data (sent in at 1000Hz). See [here](RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local).
+ You can either directly send from the  RPi end, or using **"emg-read-in-local"** in the child path reading in local EMG data (sent in at 1000Hz). See [here](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end/Server%20Pong%20GUI-all%20together/0408-emg-read-in-local)
  
  ---
  
