@@ -1,27 +1,28 @@
 
-# Pong game controlled by EMG signal from the server.
+## Pong controlled by EMG from server :ping_pong:
 
-## This code is for 2 EMG channels
+**This code is for the use of 2 EMG channels**
 
-The game's refresh rate is based on a count receiving from local, instead of a timer. The Android system uses a polling timer and can cause coarse timer errors so this was avoided.
+The games refresh rate is based on a local counter rather than a timer. This is to avoid coarse timer errors imposed as a result of the Android systems polling timer.
 
-## Check it out the unit test here:
-https://www.youtube.com/watch?v=rDG5sTIDT1k
+### Check it out the video below:
+[Unit test](https://www.youtube.com/watch?v=rDG5sTIDT1k)
 
-## How to compile
+## Compilation
+
 ### Android
 1. Compile Qt & Qt creator from source intergrated Qt for Android. Install Android SDK from source and set SDK & NDK. Connect the path to SDK & NDK in Qt creator settings to form a tool chain.
 2. Connect an Android phone to the computer, set the mode 'transferring file', turn on developer mode and UDP testing.
 3. In Qt creator on the computer, open the .pro file, select Qt for android-release for debug, then click run.
 4. Approve installation on Android phone. 
 
-For the testing, an ubuntu 18.04 pc and an android 9.0.0 HUAWEI Mate 20 were used.
+**For the testing, an ubuntu 18.04 pc and an android 9.0.0 HUAWEI Mate 20 were used.**
 
-### On PC
+### PC
 1. Directly run in Qt creator.
 
-## Signal input from local
- You can either directly send from the  RPi end, or using 'emg-read-in-local' in the child path reading in local EMG data (sent in at 1000Hz) see [here](RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local).
+## Local signal input
+ You can either directly send from the  RPi end, or using 'emg-read-in-local' in the child path reading in local EMG data (sent in at 1000Hz). See [here](RTEP\Server_end\Server Pong GUI-all together\0408-emg-read-in-local).
  
 ## To play the game on pc without compiling Qt for android (Qt creator is required)
 1. Download all the files in 'Server Pong GUI-all together\ and 0408-emg-read-in-local\', including the EMG data files
