@@ -9,12 +9,16 @@ This folder contains all of the code for the RaspberryPi and ADS1115 together. T
 
 All of this is done synchronously and in real-time! 
 
+---
+
 ## Unit Test Videos :movie_camera:
 See the links below for videos of the driver in action.
 
 Part 1: [Test 1](https://www.youtube.com/watch?v=j-3AxjxNN2I)
 
 Part 2: [Test 2](https://www.youtube.com/watch?v=jThJus-PdIQ)
+
+---
 
 ## Pre-requisites 
 
@@ -25,6 +29,8 @@ Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
 The WiringPi library must also be installed in advance. For the library and how to install, see [here](http://wiringpi.com/download-and-install/)
 
 Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your computer.
+
+---
 
 ## Action :clapper:
 
