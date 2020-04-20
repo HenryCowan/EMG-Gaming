@@ -1,4 +1,4 @@
-# High speed continous driver for the ADS1115 :runner:
+## High speed continous driver for the ADS1115 :runner:
 
 To control the ADS1115 to read at >400Hz, the ads driver should control ADS1115 in continous mode
 We could not find a pre-existing ADS1115 continous driver in C++, so we wrote this QT/C++ one.
