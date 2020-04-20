@@ -2,16 +2,23 @@
 
 The first image displays the raw data, while the second shows the high-pass filtered and power-time-smoothed EMG data (Fc = 10Hz; smoothed over 5 samples) to be sent via UDP.
 
+---
+
 ![](origin.png)
+
+---
 
 ![](flhp1ed.png)
 
+---
 
 ## Pre-requisites 
 
 Before running the code, an IIR filter library from Dr Bernd Porr must be installed in advance. For the library and how to install, see [here](https://github.com/berndporr/iir1)
 
 Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
+
+---
 
 ## Action :movie_camera:
 
