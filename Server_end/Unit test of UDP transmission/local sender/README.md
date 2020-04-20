@@ -1,10 +1,12 @@
-# UDP sender sending data using UDP protocol.
-Here is an exampe of a local UDP sender sending a float array to the receiver port of the receiver (either a remote IP or a local host). 
+## UDP sender sending data using UDP protocol.
 
+Here is an exampe of a local UDP sender, transmitting a float array to the receiver port of the receiver (either a remote IP or a local host). 
 
-## Making it work
+---
 
-Download files in this folder.
+## Action :movie_camera:
+
+Download the files in this folder.
 
 To build, enter the folder and run in terminal:
 
