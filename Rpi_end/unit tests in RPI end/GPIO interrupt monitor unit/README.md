@@ -22,7 +22,7 @@ Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your com
 
 ```
     git clone https://github.com/TheUltraSoundGuys/RTEP.git
-    cd RTEP/Rpi_end/unit tests in RPI end/GPIO interrupt monitor unit
+    cd RTEP/Rpi_end/'unit tests in RPI end'/'GPIO interrupt monitor unit'
     qmake
     make 
 ```
