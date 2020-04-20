@@ -14,7 +14,7 @@ To see how we've tested this driver, check out this [code](https://github.com/Th
 
 ## References
 
-These two sites were used to aid our driver construction. 
+These two sites were used to aid our driver construction:
 
 For those who can read Mandarin, [this](https://blog.csdn.net/weixin_45380951/article/details/103268996) is the site for you!
 
