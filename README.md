@@ -5,11 +5,15 @@ This repository demomstrates the use of a Raspberry Pi in controlling a video ga
 
 The repository describes how to measure EMG signals from the user's bicep and/or ticep muscles, and how these are then used in turn to control the movement of a paddle in the classic game Pong :ping_pong: (the principles being completely transferrable to other relatively rudimentary games). 
 
+---
+
 ## Premise
 
 The simplest video games have very limited inputs. For some this is simply left/right, while for others it may be up/down/left/right. This makes it relatively straightforward to hack these inputs to be controlled by EMG signals (one muscle controls left, another right, etc). With a 4 channel system, we hope to be able to accomodate single-player versions of games requiring 4 input options, or multiplayer versions of games requiring only 2 (a safe outlet for any pent up testosterone!).
 
 The primary use of this system is to increase the level of submersion the player feels within the gaming environment, providing a new challenge, and adding a new dimension to the gaming experience. The system also has potential application in the field of rehabilitation, encouraging persistence with otherwise unpleasant rehabilitation regimes.
+
+---
 
 ## Social Media
 
@@ -21,6 +25,8 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 [Software documentation!](https://finlay-nelson.github.io/Test.io/.)
 
+---
+
 ## EMG Measurement :muscle:
 
 Here we provide a description of the methods that should be employed in measuring user EMG. In light of the recent Covid-19 outbreak, the hardware components of this project remain incomplete and as such sample EMG data was instead obtained using a [USB-DUX](https://www.linux-usb-daq.co.uk/order2/) and bioamplifier for software testing purposes. The acquired EMG data has been deposited in Gitlab, and can be found through the link below, along with an example Python script for filtering and plotting.
@@ -30,6 +36,8 @@ Here we provide a description of the methods that should be employed in measurin
 Standard Ag/AgCl electrodes should be place approximately 20cm apart on the chosen muscle(s). In our case, measuring 4 channels, this required a pair of electrodes on each bicep and a pair on each tricep, with a further electrode attached to the ankle to act as ground (9 total). For a 2 channel approach, any 2 pairs of electrodes may be discounted, leaving 5 total.
 
 Had the hardware components been completed, these signals would be sent through a two stage amplifer, the first a differential stage and the second a gain stage. The output from the amplifier is sent to an ADC (ADS1115) and passed to a Raspberry Pi via the I2C bus protocol for post-processing and game connection. Using the sample EMG data, the amplifification stage was subverted, applying directly to the ADC component.  
+
+---
 
 ## Outcomes
 
@@ -59,6 +67,8 @@ Had the hardware components been completed, these signals would be sent through 
   - [x] Pong game controlled by EMG signal (2 channel, for single channel see branch **single-ch**). [:link:](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Server_end/Server%20Pong%20GUI-all%20together)
 
 **And all of this done synchronously and in real-time! For an example video of each process, see the README in each folder** 
+
+---
 
 ## Primary Contributions
 
