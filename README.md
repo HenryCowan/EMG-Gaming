@@ -28,7 +28,7 @@ See the project's [Wiki](https://github.com/TheUltraSoundGuys/RTEP/wiki) for mor
 
 ## Social Media
 
-Below are the links to our Facebook and Twitter pages where you can keep up to date with all our latest and most exciting developments. You can also find our code documentation, aided with the Wiki page, so that you can get to grips with our work yourselves!
+Below are the links to our Facebook and Twitter pages where you can keep up to date with all our latest and most exciting developments. You can also find our code documentation, aided by the Wiki page, so that you can get to grips with our work yourselves!
 
 [Muscle Power Gaming - Facebook](https://www.facebook.com/EMGamingRPI/)
 
