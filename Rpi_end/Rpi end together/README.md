@@ -1,4 +1,4 @@
-## Rpi end code together
+## Rpi-end code together :computer:
 This folder contains all of the code for the RaspberryPi and ADS1115 together. This code covers the execution of:
 * The ADS1115 driver
 * Interrupt driven sampling
