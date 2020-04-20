@@ -31,7 +31,7 @@ Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
 
 ```
     git clone https://github.com/TheUltraSoundGuys/RTEP.git
-    cd RTEP/Rpi_end/'Rpi end together'
+    cd "Rpi_end\unit tests in RPI end\Ads1115 continous driver data input unit\"
     qmake
     make
 ```
