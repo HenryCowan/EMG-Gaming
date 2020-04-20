@@ -3,7 +3,7 @@
 
 This repository demomstrates the use of a Raspberry Pi with EMG detection cicuitory to control a video game in real-time using signals from the muscles. This is a project for the Real-time Embedded Systems cource at the University of Glasgow.
 
-The repository describes how to measure EMG signals from the user's muscles - we have given the example of biceps and/or triceps however this technology is apllicable to any muscles capable of contraction. The use of these signals to control the movement of a paddle in the classic game Pong is then demostrated and presented(the principles being completely transferrable to other relatively rudimentary games). :ping_pong:
+The repository describes how to measure EMG signals from the user's muscles - we have given the example of biceps and/or triceps however this technology is apllicable to any muscles capable of contraction. The use of these signals to control the movement of a paddle in the classic game Pong is then demostrated and presented (the principles being completely transferrable to other relatively rudimentary games). :ping_pong:
 
 ---
 
