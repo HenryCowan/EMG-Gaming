@@ -22,11 +22,11 @@ Part 2: https://www.youtube.com/watch?v=jThJus-PdIQ
 
 ## Pre-requisites 
 
-Before running the code, an IIR filter library from Dr Bernd Porr must be installed in advance. For the library and how to install, see [here](https://github.com/berndporr/iir1)
+Before running the code, an IIR filter library from Dr Bernd Porr must be installed in advance. For the library and how to install, see [here](https://github.com/berndporr/iir1).
 
 Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
 
-The WiringPi library must also be installed in advance. For the library and how to install, see [here](http://wiringpi.com/download-and-install/)
+The WiringPi library must also be installed in advance. For the library and how to install, see [here](http://wiringpi.com/download-and-install/).
 
 Adapt the path of WiringPi lib in the .pro file to the WiringPi path on your computer.
 
