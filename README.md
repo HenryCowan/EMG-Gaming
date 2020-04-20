@@ -39,7 +39,7 @@ Below are the links to our Facebook and Twitter pages where you can keep up to d
 
 - [x] A custom matrix board using the ADS1115 now detects data in realtime from 1 channel using I2C.
 
-- [ ] Work to the 4 channel PCB could not be completed due to disruption caused by the COVID-19 outbreak. Follow the attached link to see our progress with the hardware and a detailed description of the effect of this virus on the project.
+- [ ] Work to the 4 channel PCB could not be completed due to disruption caused by the COVID-19 outbreak. Follow the attached link to see our progress with the hardware and a detailed description of the effect that this had virus on the project.
   - [Hardware](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Hardware)
 
 - [RPI-end software](https://github.com/TheUltraSoundGuys/RTEP/tree/master/Rpi_end)
