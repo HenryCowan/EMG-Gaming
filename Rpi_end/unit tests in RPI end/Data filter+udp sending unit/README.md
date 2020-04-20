@@ -1,12 +1,12 @@
-# Realtime plotting and UDP sending of a filtered and power, time smoothed EMG signal.
+## Realtime plotting/UDP-sending of filtered and power-time-smoothed EMG signals.
 
 Below is an example of the raw data and filtered/smoothed data which will be send via UDP.
 
-Above is the raw data:
 ![](origin.png)
 
-Below is the high-passed and smoothed data (Fc = 10Hz, smoothed over 5 samples):
 ![](flhp1ed.png)
+
+The first image displays the raw data, while the second shows the high-pass filtered and smoothed data (Fc = 10Hz; smoothed over 5 samples)
 
 ## Pre-requisites 
 
@@ -14,17 +14,12 @@ Before running the code an IIR filter library from Dr Bernd Porr must be install
 
 Adapt the path of iir1 lib in the .pro file to the iir1 path on your computer.
 
-## Making it work
+## Action :movie_camera:
 
 
 ```
-      git clone https://github.com/TheUltraSoundGuys/RTEP.git
-      cd RTEP/Rpi_end/unit tests in RPI end/Data filter+udp sending unit
-```
-
-To build, enter the folder and run in terminal:
-
-```
+    git clone https://github.com/TheUltraSoundGuys/RTEP.git
+    cd RTEP/Rpi_end/unit tests in RPI end/Data filter+udp sending unit
     qmake
     make
 ```
