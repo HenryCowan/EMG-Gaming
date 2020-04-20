@@ -10,6 +10,8 @@ To see how we've tested this driver, check out this [code](https://github.com/Th
 
 * This video shows the driver working with interrupt based sampling:
   * [Interrupt-based sampling](https://www.youtube.com/watch?v=M4weTT-E-Fw)
+  
+---
 
 ## References
 
